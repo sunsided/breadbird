@@ -1,0 +1,41 @@
+% Hauptdatei
+
+\input{header}
+
+\begin{document}
+
+\bibliographystyle{alphadin}
+
+\frontmatter
+
+\include{titelseite}
+
+% Inhaltsverzeichnis
+\addcontentsline{toc}{chapter}{Inhaltsverzeichnis}
+\tableofcontents
+
+% Abbildungszerzeichnis
+\addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
+\listoffigures
+
+% Tabellenverzeichnis
+\addcontentsline{toc}{chapter}{Tabellenverzeichnis}
+\listoftables
+
+\mainmatter
+
+\include{schub}
+
+% Literaturverzeichnis
+\nocite{*}
+\bibliography{bibliography}
+
+%\mainmatter
+\appendix
+
+\todos
+
+\backmatter
+\end{document}
+
+% EOF
