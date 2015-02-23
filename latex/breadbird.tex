@@ -11,15 +11,19 @@
 \include{tex/title/title}
 
 % Inhaltsverzeichnis
-\addcontentsline{toc}{chapter}{Inhaltsverzeichnis}
+%\newpage
+%\addcontentsline{toc}{chapter}{Inhaltsverzeichnis}
+\todo{page numberings are broken}
 \tableofcontents
 
 % Abbildungszerzeichnis
-\addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
+\addcontentsline{toc}{chapter}{\listfigurename}
+%\addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
 \listoffigures
 
 % Tabellenverzeichnis
-\addcontentsline{toc}{chapter}{Tabellenverzeichnis}
+\addcontentsline{toc}{chapter}{\listtablename}
+%\addcontentsline{toc}{chapter}{Tabellenverzeichnis}
 \listoftables
 
 \mainmatter
