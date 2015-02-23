@@ -1,0 +1,9 @@
+\usepackage{calc} % required to fix the caption widths
+
+\usepackage{caption}
+\usepackage{subcaption}
+
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox[cmyk]{0.43, 0.35, 0.35,0.01}{\parbox{\textwidth-2\fboxsep}{\hspace{15pt}#1#2#3}}}
+
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white, singlelinecheck=true, margin=0pt, font={bf,footnotesize}}
