@@ -5,13 +5,14 @@
     <Header name="header" opened="3" />
     <Content name="titelseite" />
     <Content name="schub" opened="2" />
+    <Content name="devdiary" opened="5" />
     <Bibtex name="bibliography" />
   </MasterFile>
   <Files>
     <Content filename="header.tex" opened="3" />
     <Content filename="schub.tex" opened="2" />
     <Content filename="titelseite.tex" />
-    <Content filename="devdiary.tex" />
+    <Content filename="devdiary.tex" opened="5" />
     <Bibtex filename="bibliography.bib" />
   </Files>
 </InlageProject>
