@@ -1,6 +1,6 @@
 % Hauptdatei
 
-\input{header}
+\input{tex/header}
 
 \begin{document}
 
@@ -8,7 +8,7 @@
 
 \frontmatter
 
-\include{titelseite}
+\include{tex/title/titelseite}
 
 % Inhaltsverzeichnis
 \addcontentsline{toc}{chapter}{Inhaltsverzeichnis}
@@ -24,11 +24,11 @@
 
 \mainmatter
 
-\include{schub}
+\include{tex/chapters/schub}
 
 % Literaturverzeichnis
 \nocite{*}
-\bibliography{bibliography}
+\bibliography{bibliography/bibliography}
 
 %\mainmatter
 \appendix
