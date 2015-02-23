@@ -1,63 +1,9 @@
-% Hauptdatei
-
 \input{tex/header}
 
 \begin{document}
 
-\frontmatter
+\input{tex/frontmatter}
+\input{tex/mainmatter}
+\input{tex/backmatter}
 
-\setstretch{1.3} % Line spacing of 1.3
-
-% Define the page headers using the FancyHdr package and set up for one-sided printing
-\fancyhead{} % Clears all page headers and footers
-\rhead{\thepage} % Sets the right side header to show the page number
-\lhead{} % Clears the left side page header
-
-\pagestyle{fancy} % Finally, use the "fancy" page style to implement the FancyHdr headers
-
-\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % New command to make the lines in the title page
-
-% PDF meta-data
-\hypersetup{pdftitle={\ttitle}}
-\hypersetup{pdfsubject=\subjectname}
-\hypersetup{pdfauthor=\authornames}
-\hypersetup{pdfkeywords=\keywordnames}
-
-\include{tex/title/title}
-
-% Inhaltsverzeichnis
-%\newpage
-%\addcontentsline{toc}{chapter}{Inhaltsverzeichnis}
-\todo{page numberings are broken}
-\tableofcontents
-
-% Abbildungszerzeichnis
-\addcontentsline{toc}{chapter}{\listfigurename}
-%\addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
-\listoffigures
-
-% Tabellenverzeichnis
-\addcontentsline{toc}{chapter}{\listtablename}
-%\addcontentsline{toc}{chapter}{Tabellenverzeichnis}
-\listoftables
-
-\mainmatter
-
-\include{tex/chapters/theory/theory}
-
-% the index
-\printindex
-
-% Literaturverzeichnis
-\nocite{*}
-\bibliography{bibliography/bibliography}
-
-%\mainmatter
-\appendix
-
-\listoftodos
-
-\backmatter
 \end{document}
-
-% EOF

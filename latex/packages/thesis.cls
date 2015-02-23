@@ -159,7 +159,7 @@
 %	defined as \examname above so you cite it as \examname
 %----------------------------------------------------------------------------------------
 
-\thesistitle{Controlling the Rover 5 platform using the FRDM-KL26Z evaluation board} % Your thesis title - this is used in the title and abstract
+\thesistitle{Autonomous flight control of a quadrotor UAV using the STM32F3-Discovery microcontroller evaluation board} % Your thesis title - this is used in the title and abstract
 %-------------------------------------------------  
 \authors{Markus \textsc{Mayer}} % Your name - this is used in the title page and abstract
 %-------------------------------------------------   
