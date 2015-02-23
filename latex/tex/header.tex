@@ -1,133 +1,28 @@
 % Headerdatei
 
-% Dokumentklasse wählen
-\documentclass[a4paper,bibliography=totoc,11pt,draft]{book}
-\usepackage{a4wide}
-%\usepackage{a4}
+% document class and everything
+\input{tex/header/document.tex}
 
-% Zeichencodierung
-\usepackage[utf8]{inputenc}
+% configures additional search paths
+\input{tex/header/paths.tex}
 
-% Zeichensatz
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
+% all the rest
+\input{tex/header/encoding.tex}
+\input{tex/header/i18n.tex}
+\input{tex/header/math.tex}
+\input{tex/header/units.tex}
+\input{tex/header/colors.tex}
+\input{tex/header/graphics.tex}
+\input{tex/header/listings.tex}
+\input{tex/header/index.tex}
+\input{tex/header/glossary.tex}
+\input{tex/header/todo.tex}
+\input{tex/header/hyperrefs.tex}
+\input{tex/header/tables.tex}
 
-% Anführungszeichen
-\usepackage[ngerman]{babel}
-\usepackage[ngerman]{translator}  
-\usepackage[babel,german=quotes]{csquotes}
+% Absatzeinrückung abstellen (wird in englischsprachigen Dokumenten gemacht)
+%\setlength{\parindent}{0pt}
 
-% Silbentrennung
-\usepackage{hyphenat}
-
-% Mathematik
-\usepackage{mathtools}
-\usepackage{multirow}
-\usepackage{xfrac}
-
-% Einheiten
-\usepackage[mediumspace,mediumqspace,squaren]{SIunits}
-
-% Farben
-\usepackage{xcolor}
-\definecolor{darkgreen}{rgb}{0.0,0.5,0.0}
-
-% Grafiken
-\usepackage{graphicx}
-\usepackage{float} % lädt das Paket zur Verwendung von zusätzlichen Positionsbefehlen
-\usepackage{tikz} % http://cremeronline.com/LaTeX/minimaltikz.pdf
-\usepackage{tikz-3dplot} % http://www.texample.net/tikz/examples/the-3dplot-package/
-\usepackage{subcaption}
-\usepackage{esk} % http://www.bitlib.net/mirror/ctan/macros/latex/contrib/esk/esk.pdf
-\usetikzlibrary{decorations.pathreplacing}
-\usetikzlibrary{decorations.markings}
-\usetikzlibrary{calc}
-\usetikzlibrary{shapes,arrows}
-\usetikzlibrary{automata}
-\usepackage{rotating}
-
-\tikzstyle{block} = [draw, fill=blue!20, rectangle, minimum height=2em]%, minimum width=4em]
-\tikzstyle{sum} = [draw, fill=blue!20, circle]%, node distance=1cm]
-\tikzstyle{input} = [coordinate]
-\tikzstyle{output} = [coordinate]
-\tikzstyle{pinstyle} = [pin edge={to-,thin,black}]
-
-% pstricks - Grafiken
-\usepackage{pstricks}
-\usepackage{pst-plot}
-\usepackage{pstricks-add}
-
-% Code Listings
-\usepackage{scrhack} 
-\usepackage{listingsutf8}
-
-% Code Listings: Formatierung
-% ftp://ftp.tex.ac.uk/tex-archive/macros/latex/contrib/listings/listings.pdf
-\lstset{
-	language=C,
-	captionpos=b,
-	tabsize=2,
-	frame=lines,
-	keywordstyle=\color{blue}\bfseries\ttfamily,
-	commentstyle=\color{darkgreen},
-	stringstyle=\color{red},
-	numbers=left,
-	numberstyle=\tiny,
-	numbersep=5pt,
-	breaklines=true,
-	showstringspaces=false,
-	basicstyle=\footnotesize\ttfamily,
-	%showspaces=true,
-	%showtabs=true,
-	%tab=\rightarrowfill,
-	escapeinside={@}{@},
-	emph={label},
-	%extendedchars=\true,
-  inputencoding=utf8
-}
-\lstset{
-  literate=%
-					 {ö}{{\"o}}1
-					 {ö}{{\"O}}1
-           {ä}{{\"a}}1
-					 {Ä}{{\"A}}1
-           {ü}{{\"u}}1
-					 {Ü}{{\"U}}1
-   				 {ß}{{\ss}}1
-					 {²}{{\textsuperscript{2}}}1
-					 {³}{{\textsuperscript{3}}}1
-					 {°}{{\degree}}1
-}
-
-
-% Absatz einrücken abstellen (wird in englischsprachigen Dokumenten gemacht)
-\setlength{\parindent}{0pt}
-
-% Index
-% http://en.wikibooks.org/wiki/LaTeX/Indexing#Sophisticated_Indexing
-\usepackage{makeidx}
-\makeindex
-
-% Glossar
-% ftp://ftp.rrzn.uni-hannover.de/pub/mirror/tex-archive/macros/latex/contrib/glossary/glossary.pdf
-% ftp://ftp.tu-chemnitz.de/pub/tex/macros/latex/contrib/glossaries/glossaries-user.html
-\usepackage[acronym,toc,numberedsection,numberline,section=section]{glossaries}
-
-% TODO
-% http://ftp.fernuni-hagen.de/ftp-dir/pub/mirrors/www.ctan.org/macros/latex/contrib/todo/todo.pdf
-\usepackage{todo}
-
-% Klickbare Querverweise
-% http://www.math.uni-hamburg.de/home/iffland/Materialien/Einf_hyperref.pdf
-%\usepackage[hypertex,bookmarksopen]{hyperref}
-\usepackage[bookmarksopen]{hyperref}
-
-% Tabellen
-\usepackage{array}
-\usepackage{booktabs}
-
-
-\newcolumntype{C}[1]{>{\centering}m{#1}}
 
 %\usepackage[section] {placeins}
 

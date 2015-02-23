@@ -1,0 +1,42 @@
+% Code Listings
+\usepackage{scrhack} 
+\usepackage{listingsutf8}
+
+\lstset{
+	literate=%
+		{ö}{{\"o}}1
+		{ö}{{\"O}}1
+        {ä}{{\"a}}1
+		{Ä}{{\"A}}1
+        {ü}{{\"u}}1
+		{Ü}{{\"U}}1
+   		{ß}{{\ss}}1
+		{²}{{\textsuperscript{2}}}1
+		{³}{{\textsuperscript{3}}}1
+		{°}{{\degree}}1
+}
+
+% Code Listings: Formatierung
+% ftp://ftp.tex.ac.uk/tex-archive/macros/latex/contrib/listings/listings.pdf
+\lstset{
+	language=C,
+	captionpos=b,
+	tabsize=2,
+	frame=lines,
+	keywordstyle=\color{blue}\bfseries\ttfamily,
+	commentstyle=\color{darkgreen},
+	stringstyle=\color{red},
+	numbers=left,
+	numberstyle=\tiny,
+	numbersep=5pt,
+	breaklines=true,
+	showstringspaces=false,
+	basicstyle=\footnotesize\ttfamily,
+	%showspaces=true,
+	%showtabs=true,
+	%tab=\rightarrowfill,
+	escapeinside={@}{@},
+	emph={label},
+	%extendedchars=\true,
+  inputencoding=utf8
+}
