@@ -1,0 +1,17 @@
+\begin{tikzpicture}
+
+	\coordinate (O) at (0,0);
+	\coordinate (Rnode) at (1,1);
+	\coordinate (R) at (1.4142,1.4142);
+
+	\draw [gray, dotted, thin] (2,0) arc [radius=2, start angle=0, end angle=90];
+	\draw [|->] (O) -- (Rnode) node [below right] {r} -- (R);
+	\draw [purple,->] (R) -- +(0.5*1.4142,-0.5*1.4142) node [above right] {$\vec{a}_T$};
+
+	\draw [gray, ultra thin] (-0.2,0) -- (0.2,0);
+	\draw [gray, ultra thin] (0,-0.2) -- (0,0.2);
+
+	\draw [thin, <-, teal] (0.7071,0) arc [radius=0.7071, start angle=0, end angle=45];
+	\node [below, teal] at (0.7071,0) {$\alpha$};
+
+\end{tikzpicture}

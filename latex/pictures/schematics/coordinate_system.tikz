@@ -1,0 +1,45 @@
+\begin{tikzpicture}[x = {({sin(-60)*1cm},{-cos(60)*1cm})},
+                    y = {({sin(60)*1cm},{-cos(60)*1cm})},
+                    z = {(0cm,1cm)},
+										scale=1.5]
+	
+	\def\radius{0.25};
+		
+	\coordinate (Origin) 	at (0,0,0);
+	\coordinate (X) 			at (1,0,0);
+	\coordinate (Y) 			at (0,1,0);
+	\coordinate (Z) 			at (0,0,1);
+	
+	\draw[->,thick,red] (Origin) -- (X) node [pos=1.3] {$X$};
+	\draw[->,thick,green] (Origin) -- (Y) node [pos=1.3] {$Y$};
+	\draw[->,thick,blue] (Origin) -- (Z) node [pos=1.3] {$Z$};
+	
+	\begin{scope}[canvas is zy plane at x=0.7]
+		\draw[
+				red, thin, decoration={markings, mark=at position 0 with {
+						\arrow{<},
+						\node[above] {$\Phi$};
+						}},
+        postaction={decorate}
+			] (0, 0) circle (0.25);
+	\end{scope}
+	
+	\begin{scope}[canvas is xz plane at y=0.7]
+		\draw[green, thin, decoration={markings, mark=at position 0 with {
+						\arrow{<},
+						\node[left] {$\Theta$};
+						}},
+        postaction={decorate}
+			] (0, 0) circle (0.25);
+	\end{scope}
+	
+	\begin{scope}[canvas is xy plane at z=0.7]
+		\draw[blue, thin, decoration={markings, mark=at position 0.4 with {
+						\arrow{>},
+						\node[right] {$\Psi$};
+						}},
+        postaction={decorate}
+			] (0, 0) circle (0.25);
+	\end{scope}	
+	
+\end{tikzpicture}

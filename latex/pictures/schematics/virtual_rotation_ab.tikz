@@ -1,0 +1,52 @@
+\begin{tikzpicture}[x = {({-sin(-60)*1cm},{cos(60)*1cm})},
+                    y = {({sin(60)*1cm},{-cos(60)*1cm})},
+                    z = {(0cm,1cm)},
+                    scale=1]
+
+	\def\radius{3};
+	\def\rotor{1.5};
+
+	% Quadrocopter
+	\node [below] (0,0,0) {$R$};
+	\draw [very thin,fill=black!10] (0,0,0) -- +(\radius,0,0) node [above left] {$A$};
+	\draw [very thin,fill=black!10] (0,0,0) -- +(-\radius,0,0) node [below right] {$B$};
+	\draw [very thin,fill=black!10] (0,0,0) -- +(0,-\radius,0) node [below left] {$C$};
+	\draw [very thin,fill=black!10] (0,0,0) -- +(0,\radius,0) node [above right] {$D$};
+
+	% Achse A
+	\draw [very thick, red, ->] (\radius,0,0) -- +(0,1,0) node [pos=1.2] {$X$};
+	\draw [very thick, green, ->] (\radius,0,0) -- +(1,0,0) node [pos=1.2] {$Y$};
+	\draw [very thick, blue, ->] (\radius,0,0) -- +(0,0,1) node [pos=1.2] {$Z$};
+	\draw [very thin, dotted, black!50] (\radius,0,0) circle (\rotor);
+
+	% Achse B
+	\draw [very thick, red, ->] (-\radius,0,0) -- +(0,-1,0) node [pos=1.2] {$X$};
+	\draw [very thick, green, ->] (-\radius,0,0) -- +(-1,0,0) node [pos=1.2] {$Y$};
+	\draw [very thick, blue, ->] (-\radius,0,0) -- +(0,0,1) node [pos=1.2] {$Z$};
+	\draw [very thin, dotted, black!50] (-\radius,0,0) circle (\rotor);
+
+	% Achse C
+	\draw [red!25, ->] (0,-\radius,0) -- +(1,0,0) node [pos=1.2] {$X$};
+	\draw [green!25, ->] (0,-\radius,0) -- +(0,-1,0) node [pos=1.2] {$Y$};
+	\draw [blue!25, ->] (0,-\radius,0) -- +(0,0,1) node [pos=1.2] {$Z$};
+	\draw [very thin, dotted, black!50] (0,-\radius,0) circle (\rotor);
+
+	% Achse D
+	\draw [red!25, ->] (0,\radius,0) -- +(-1,0,0) node [pos=1.2] {$X$};
+	\draw [green!25, ->] (0,\radius,0) -- +(0,1,0) node [pos=1.2] {$Y$};
+	\draw [blue!25, ->] (0,\radius,0) -- +(0,0,1) node [pos=1.2] {$Z$};
+	\draw [very thin, dotted, black!50] (0,\radius,0) circle (\rotor);
+
+	\begin{scope}[canvas is xz plane at y=0]
+	\filldraw [<->, very thick,fill=red!10,opacity=10] (-\radius,0,0) ++(90:0) arc (180:0:\radius);
+	\end{scope}
+
+	\draw [very thin, dotted] (0,0,0) -- ({\radius*cos(90)},0,{\radius*sin(90)});
+	\node [above] (X) at ({\radius*cos(90)},0,{\radius*sin(90)}) {$\theta$};
+
+	% Achse: Referenz
+	\draw [very thick, red, ->] (0,0,0) -- +(0,1,0) node [pos=1.2] {$X$};
+	\draw [very thick, green, ->] (0,0,0) -- +(1,0,0) node [pos=1.2] {$Y$};
+	\draw [very thick, blue, ->] (0,0,0) -- +(0,0,1) node [pos=1.2] {$Z$};
+
+\end{tikzpicture}
