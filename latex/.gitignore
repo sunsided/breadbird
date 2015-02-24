@@ -10,8 +10,6 @@
 *.ps
 *.blg
 *.bbl
-*.blg
-*.bbl
 *.tps
 *.lol
 *.ist
@@ -26,3 +24,4 @@
 *.ilg
 *.out
 *.tdo
+*.brf
