@@ -2,7 +2,7 @@
 
 \todo{two different types of thrust, static and ...}
 
-\emph{Static} thrust % Standschub
+\emph{Static} thrust\index{thrust!static} % Standschub
 is the thrust applied by a system given the precondition that no movement is happening. \todo{what is it good for}
 
 \todo{would it be correct to assume that static thrust is what makes a helicopter float?}
@@ -10,13 +10,13 @@ is the thrust applied by a system given the precondition that no movement is hap
 \bigbreak
 
 Aus der Drehzahl 
-$N \left[\si{U\per\minute}\right]$ 
+$N \withunit{U\per\minute}$ 
 des Motors, sowie des Radius 
-$r \left[\si{\metre}\right]$ 
+$r \withunit{\metre}$ 
 der Luftschraube lässt sich die Winkelgeschwindigkeit 
-$\omega_R \left[\si{\radian\per\second}\right]$, 
+$\omega_R \withunit{\radian\per\second}$, 
 sowie die Blattspitzen- bzw. Umfangsgeschwindigkeit 
-$U \left[\si{\metre\per\second}\right]$ 
+$U \withunit{\metre\per\second}$ 
 ermitteln:
 
 \begin{align}
@@ -27,7 +27,7 @@ ermitteln:
 \todo{Quellen aus \url{http://www.rc-network.de/magazin/artikel_02/art_02-0037/Standschub.pdf}}
 \bigbreak
 
-Das die Luftschraube treibende Drehmoment $M$ $\left[\si{\newton\meter}\right]$ ist mit der Antriebs-/Wellenleistung $P_W \left[\si{\watt}\right]$ des Motors über den Zusammenhang
+Das die Luftschraube treibende Drehmoment $M$ $\withunit{\newton\meter}$ ist mit der Antriebs-/Wellenleistung $P_W \withunit{\watt}$ des Motors über den Zusammenhang
 
 \begin{align}
 	R_W = M \cdot \omega_R
@@ -43,14 +43,14 @@ Die vom Motor auf den Propeller übertragene Schubleistung $P_S$ lässt sich üb
 	P_S = K_p \cdot \left(\frac{N}{1000}\right)^{K_t}
 \end{align}
 
-ermitteln. $K_p$ entspricht hierbei der Propellerkonstante, $K_t$ einer Leistungskonstante \todo{Quelle finden, \url{http://quadcopterproject.wordpress.com/static-thrust-calculation/} ist da sehr vage} und $N$ $\left[\si{U\per\minute}\right]$ der bekannten Drehzahl des Motors.
+ermitteln. $K_p$ entspricht hierbei der Propellerkonstante, $K_t$ einer Leistungskonstante \todo{Quelle finden, \url{http://quadcopterproject.wordpress.com/static-thrust-calculation/} ist da sehr vage} und $N \withunit{U\per\minute}$ der bekannten Drehzahl des Motors.
 
 \bigbreak
 
-Alternativ kann unter Vorgabe des Durchmessers $D \left[\text{inch}\right]$ der Luftschraube und ihrer Steigung $S \left[\text{inch}\right]$ die Leistung bei Propellerkonstanten $1.1 \leq K_p \leq 1.3$ abgeschätzt werden\todo{Quelle auf \url{http://corsair.flugmodellbau.de/files/proggies/PROPSC~1.TXT}}:
+Alternativ kann unter Vorgabe des Durchmessers $D \withunit{\inch}$ der Luftschraube und ihrer Steigung $S \withunit{\inch}$ die Leistung bei Propellerkonstanten $1.1 \leq K_p \leq 1.3$ abgeschätzt werden\todo{Quelle auf \url{http://corsair.flugmodellbau.de/files/proggies/PROPSC~1.TXT}}:
 
 \begin{align}
-	P_S = K_p \cdot \left(\frac{D}{12 \sfrac{in}{ft}}\right)^4 \cdot \frac{S}{12 \sfrac{in}{ft}} \cdot \left(\frac{N}{1000}\right)^3
+	P_S = K_p \cdot \left(\frac{D}{12 \si{\inch\per\foot}}\right)^4 \cdot \frac{S}{12 \sfrac{in}{ft}} \cdot \left(\frac{N}{1000}\right)^3
 \end{align}
 
 Für eine $14\times 10$-Luftschraube mit den Werten $K_p = 1.118$ und $K_t = 3.20$ bei $N = 12000 \si{U\per\minute}$ \todo{Beispiel für APC Electric $14\times 10$ auf \url{http://aircraft-world.com/prod_datasheets/hp/emeter/hp-propconstants.htm}} ergäbe sich folglich:
@@ -77,6 +77,6 @@ Gemäß \cite{standschub} kann der Schub einer Luftschraube wie folgt ermittelt 
 	F_S &= 0.67 \sqrt[3]{\frac{\rho}{2}\cdot\pi \cdot D^2 \cdot P_S^2}
 \end{align}
 
-wobei $H,D \left[\si{\centi\meter}\right]$ und $H \left[\si{\meter}\right]$ angenommen werden.
+wobei $H,D \withunit{\centi\meter}$ und $H \withunit{\meter}$ angenommen werden.
 
-\todo{Großer Blödsinn, Formeln nochmal aptippen.}
+\todo{Großer Blödsinn, Formeln nochmal abtippen.}
