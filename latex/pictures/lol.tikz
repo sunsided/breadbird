@@ -1,0 +1,14 @@
+\tdplotsetmaincoords{75}{-45}
+\begin{tikzpicture}[tdplot_main_coords]
+
+	\tdplotsetrotatedcoords{0}{0}{0}
+	
+	\def\width{0.5}
+	\def\length{3}
+	\def\belly{2} 
+
+	\draw [gray!50,tdplot_rotated_coords]  (0,0.125) -- (\belly,\width) -- (\length,0) -- (\belly,-\width) -- (0,-0.125); 
+	\draw [cyan, fill=cyan, fill opacity=0.2, tdplot_rotated_coords] plot [smooth, tension=0.8] coordinates { (0,0.125) (\belly,\width) (\length,0) (\belly,-\width) (0,-0.125)};
+
+
+\end{tikzpicture}

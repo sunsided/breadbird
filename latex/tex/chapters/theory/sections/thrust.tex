@@ -1,16 +1,45 @@
-\section{Der Schub and all his friends}
+\todo{static thrust vs. jet velocity (pitch speed?)}
+
+\section{Thrust}
+
+\begin{quote}
+So basically, thrust is air pushing against air. There are two Components of Thrust; The "Size" (power) and "Velocity" (speed) of that push. A 8.5 inch has twice the area as a 6 inch pipe. A 8.5v inch pipe with air coming out of it at 40mph will produce the same thrust as a 6 inch pipe with a air coming out of it at 80mph. A 7.25 inch pipe with a air coming out of it at 60mph will be a balance between the two extremes. All three pipes are moving exactly the same amount of air and have the same amount of thrust. If like motors (with the same amp draw) produce the thrust in each pipe; the 8.5 inch pipe’s thrust will be powerful and slow, the 6 inch pipe’s thrust will be weak and fast, and the 7.25 inch pipe will have a balance of power and speed.
+\end{quote}
+\todo{http://www.rcpowers.com/community/threads/the-components-of-thrust-how-to-choose-a-propeller-tutorial.15443/}
+
+\begin{quote}
+Ein Senkrechtstarter kann nur dann senkrecht abheben, wenn die Schubkraft größer ist als die Gewichtskraft des Flugzeugs, siehe auch Schub-Gewicht-Verhältnis. Bei einem 17 Tonnen schweren Hawker Siddeley Harrier z. B. reichen die 200 kN aus seinem Triebwerk aus, um ihn vertikal zu beschleunigen. Bei Starrflügelflugzeugen muss der Schub nur einen Bruchteil des Eigengewichts betragen, da der Flügel den anderen Teil des Eigengewichtes „trägt“.
+\end{quote}
+\todo{http://de.wikipedia.org/wiki/Schub}
+
+\begin{figure}
+	\input{pictures/lol.tikz}
+	\caption{LOL!}
+\end{figure}
+
+\section{Static thrust}
 
 \todo{two different types of thrust, static and ...}
 
 \emph{Static} thrust\index{thrust!static} % Standschub
-is the thrust applied by a system given the precondition that no movement is happening. \todo{what is it good for}
+is the thrust applied by a system given that no actual movement is allowed.
 
-\todo{would it be correct to assume that static thrust is what makes a helicopter float?}
+In case of a propeller based system, static thrust is the amount of thrust 
+produced by a given propeller when it is stationary in relation to the ground.
+
+Put differently, it describes the force required to keep a system static if its 
+thrusters operate with full power. \todo{what is it good for}
+
+\todo{would it be correct to assume that static thrust is what makes a helicopter hover?}
+
+\todo{thrust-to-weight ratio}
+\todo{https://quadcopterproject.wordpress.com/static-thrust-calculation/}
+\todo{http://electricrcaircraftguy.blogspot.de/2013/09/propeller-static-dynamic-thrust-equation.html}
 
 \bigbreak
 
 Aus der Drehzahl 
-$N \withunit{U\per\minute}$ 
+$N \withunit{\per\minute}$ 
 des Motors, sowie des Radius 
 $r \withunit{\metre}$ 
 der Luftschraube lässt sich die Winkelgeschwindigkeit 
@@ -20,7 +49,7 @@ $U \withunit{\metre\per\second}$
 ermitteln:
 
 \begin{align}
-	\omega_R &= 2\pi \cdot \frac{N}{60 \si{U\per\second}} \approx 0.105 \cdot N \\
+	\omega_R &= 2\pi \cdot \frac{N}{60 \si{\per\second}} \approx 0.105 \cdot N \\
 	U &= \omega_R \cdot r
 \end{align}
 
@@ -43,7 +72,7 @@ Die vom Motor auf den Propeller übertragene Schubleistung $P_S$ lässt sich üb
 	P_S = K_p \cdot \left(\frac{N}{1000}\right)^{K_t}
 \end{align}
 
-ermitteln. $K_p$ entspricht hierbei der Propellerkonstante, $K_t$ einer Leistungskonstante \todo{Quelle finden, \url{http://quadcopterproject.wordpress.com/static-thrust-calculation/} ist da sehr vage} und $N \withunit{U\per\minute}$ der bekannten Drehzahl des Motors.
+ermitteln. $K_p$ entspricht hierbei der Propellerkonstante, $K_t$ einer Leistungskonstante \todo{Quelle finden, \url{http://quadcopterproject.wordpress.com/static-thrust-calculation/} ist da sehr vage} und $N \withunit{\per\minute}$ der bekannten Drehzahl des Motors.
 
 \bigbreak
 
@@ -53,14 +82,14 @@ Alternativ kann unter Vorgabe des Durchmessers $D \withunit{\inch}$ der Luftschr
 	P_S = K_p \cdot \left(\frac{D}{12 \si{\inch\per\foot}}\right)^4 \cdot \frac{S}{12 \sfrac{in}{ft}} \cdot \left(\frac{N}{1000}\right)^3
 \end{align}
 
-Für eine $14\times 10$-Luftschraube mit den Werten $K_p = 1.118$ und $K_t = 3.20$ bei $N = 12000 \si{U\per\minute}$ \todo{Beispiel für APC Electric $14\times 10$ auf \url{http://aircraft-world.com/prod_datasheets/hp/emeter/hp-propconstants.htm}} ergäbe sich folglich:
+Für eine $14\times 10$-Luftschraube mit den Werten $K_p = 1.118$ und $K_t = 3.20$ bei $N = 12000 \si{\per\minute}$ \todo{Beispiel für APC Electric $14\times 10$ auf \url{http://aircraft-world.com/prod_datasheets/hp/emeter/hp-propconstants.htm}} ergäbe sich folglich:
 
 \begin{align}
 	P_{K_p,K_t} &= 1.118 \cdot 12^{3.20} \\ &= 3175.6 \si{\watt} \notag\\
 	P_{approx} &= 1.118 \cdot \left(\frac{14}{12}\right)^4 \left(\frac{10}{12}\right) \cdot \left(\frac{12000}{1000}\right)^3 \\ &= 2982.5 \si{\watt} \notag
 \end{align}
 
-Für kleinere Werte von $K_p$ weichen die Ergebnisse jedoch stark voneinander ab, so dass das Beispiel $K_p = 0.187$ und $K_t = 3.30$ bei $N = 12000 \si{U\per\minute}$ \todo{APC SLOWFLY $10\times 4.7$} nicht funktioniert:
+Für kleinere Werte von $K_p$ weichen die Ergebnisse jedoch stark voneinander ab, so dass das Beispiel $K_p = 0.187$ und $K_t = 3.30$ bei $N = 12000 \si{\per\minute}$ \todo{APC SLOWFLY $10\times 4.7$} nicht funktioniert:
 
 \begin{align}
 	P_{K_p,K_t} &= 0.187 \cdot 12^{3.30} \\ &= 681 \si{\watt} \notag\\
