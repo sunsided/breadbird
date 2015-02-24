@@ -23,14 +23,42 @@
 		\draw [black, dotted, fill=black, fill opacity=0.1] (0,0) circle (3);
 		\pic{rotor};
 
-		\rotorcylinder{0}{0}{-2}{3}{4};
+		%\rotorcylinder{0}{0}{-2}{3}{4};
 		\draw [dotted, >->] (0,0,2) -- (0,0,-2);
 		
+		\def\radiusA{(tanh(2)+3)}
+		\def\radiusB{(tanh(2)+3)}
+		\def\radiusC{(tanh(1)+3)}
+		\def\radiusD{(tanh(-1)+3)}
+		\def\radiusE{(tanh(-2)+3)}
+		\def\radiusF{(tanh(-2)+3)}
+			
+		\draw [draw opacity=0.3] (0,0,2) circle (\radiusA);
+		\draw [draw opacity=0.3]  (0,0,1) circle (\radiusB);
+		\draw [draw opacity=0.3]  (0,0,0.35) circle (\radiusC);
+		\draw [draw opacity=0.3]  (0,0,-0.35) circle (\radiusD);
+		\draw [draw opacity=0.3]  (0,0,-1) circle (\radiusE);
+		\draw [draw opacity=0.3]  (0,0,-2) circle (\radiusF);
+		
+		\foreach \t in {-180,-160,...,160}{
+			\def\x{cos(\t)}
+			\def\y{sin(\t)}
+			
+			\draw [gray,draw opacity=0.2] plot [smooth,tension=0.3] coordinates {
+					({\x*\radiusA},{\y*\radiusA},2)
+					({\x*\radiusB},{\y*\radiusB},1) 
+					({\x*\radiusC},{\y*\radiusC},0.35)
+					({\x*\radiusD},{\y*\radiusD},-0.35)
+					({\x*\radiusE},{\y*\radiusE},-1)
+					({\x*\radiusE},{\y*\radiusE},-2)
+					};
+		}
+			
 	\end{tikzpicture}
 
 \end{minipage}
 \hfill
-\begin{minipage}[b]{0.5\textwidth}
+\begin{minipage}[b]{0.4\textwidth}
 
 \begin{tikzpicture}
 	
