@@ -1,6 +1,75 @@
 \todo{static thrust vs. jet velocity (pitch speed?)}
 
-\section{Thrust}
+\section{Thrust me, I'm an engine(er)}
+
+Thrust is the propulsive force that strives to move a mass-accelerating system forwards. 
+It is a directed reaction force (in the sense of \textsc{Newton}'s \textit{Actio et Reactio})
+that exists only in reaction to the action of accelerating a mass in the first place.
+Thrust is what makes propeller engines, jet propulsion engines, ion drives and garden 
+hoses\footnote{Garden hoses effectively are affordable jet propulsion engines.} move forward.
+
+\todo{\url{http://www.engineeringtoolbox.com/jet-discharge-propulsion-force-d_1868.html}}
+
+The velocity of the jet of accelerated mass(es) is given as
+%
+\begin{align}
+\vec{v}_{out} = \sqrt{2\frac{p_1 - p_\infty}{\rho}} \label{eq:outflow_velocity}
+\end{align}
+%
+where $v_{out}$ in \withunit{\metre\per\second} is the outflow velocity,
+$p_1$ in \withunit{\newton\per\square\metre} is the pressure before the jet,
+$p_\infty$ is the ambient pressure after the jet, and
+$\rho$ in \withunit{\kilo\gram\per\cubic\metre} is the density of the mass being accelerated.
+
+Given the flow volume $q$ in \withunit{\cubic\metre\per\second} -- i.e. the amount
+of mass moved over time\footnote{When
+thinking about the garden hose, the flow volume might be easier to understand when expressed in terms of \withunitx{1000}{\litre\per\second} rather than \withunitx{1}{\cubic\metre\per\second}, which technically is the same.} --
+%
+\begin{align}
+q = A\vec{v}_{out} \label{eq:flowvolume}
+\end{align}
+%
+where $A$ is the orifice area, i.e. the size of the opening in \withunit{\square\metre}, the thrust can be calculated as
+%
+\begin{align}
+\vec{F} = -\rho q \left( \vec{v}_{out} - \vec{v}_{self} \right) \label{eq:thrust}
+\end{align}
+%
+where $v_{self}$ is the velocity of the jet engine (e.g. the garden hose) itself. Essentially, if the outflow velocity is larger than the velocity
+of the accelerating system, then the propulsion force is positive, which in
+turn will accelerate the system as a whole.
+
+\todo{now if the system is moving faster than its jet velocity $v_{out}$, does that mean the thrust is negative and thus makes the system slower?}
+
+If the system itself is not moving, i.e. $v_{self} = 0$, then \cref{eq:thrust} simplifies to
+%
+\begin{align}
+\vec{F}_{static} &= -\rho q \vec{v}_{out}.  \label{eq:static_thrust_qv}
+\end{align}
+%
+This is called the static thrust\index{thrust!static}. 
+Given \cref{eq:outflow_velocity,eq:flowvolume} this can be rewritten to
+%
+\begin{align}
+\vec{F}_{static} &= -\rho A \parens{\vec{v}_{out}}^2 \label{eq:static_thrust_Av} \\
+%                 &= -\rho 2 A \frac{p_1 - p_\infty}{\rho} \\
+				 &= -2A \parens{ p_1 - p_\infty }
+\end{align}
+%
+stating that if the system increases the pressure of the mass to an amount
+larger than the atmospheric pressure, then this will result in a propulsing
+force proportional to the area of the jet stream and the pressure difference.
+
+Both \cref{eq:static_thrust_qv,eq:static_thrust_Av} are directly dependent on
+the flow volume (see \cref{eq:flowvolume}). As such, it can be seen that there are
+different ways to obtain the same amount of (static) thrust: The system may have either
+
+\begin{itemize}
+	\item a small orifice area $A$ with a high outflow velocity $\vec{v}_{out}$, or
+	\item a large orifice area $A$ with a small outflow velocity $\vec{v}_{out}$.
+\end{itemize}
+
+\todo{come back to this later and explain the rotor and motor combinations}
 
 \begin{quote}
 So basically, thrust is air pushing against air. There are two Components of Thrust; The "Size" (power) and "Velocity" (speed) of that push. A 8.5 inch has twice the area as a 6 inch pipe. A 8.5v inch pipe with air coming out of it at 40mph will produce the same thrust as a 6 inch pipe with a air coming out of it at 80mph. A 7.25 inch pipe with a air coming out of it at 60mph will be a balance between the two extremes. All three pipes are moving exactly the same amount of air and have the same amount of thrust. If like motors (with the same amp draw) produce the thrust in each pipe; the 8.5 inch pipe’s thrust will be powerful and slow, the 6 inch pipe’s thrust will be weak and fast, and the 7.25 inch pipe will have a balance of power and speed.
@@ -20,7 +89,7 @@ Ein Senkrechtstarter kann nur dann senkrecht abheben, wenn die Schubkraft größ
 			{Schematic of the rotor actuator disc concept: Stream tube geometry (left),
 			 change in air velocity ($\Delta v$, dashed red) and
 			 air pressure relative to 
-			 atmospheric pressure $\rho_\infty$ ($\Delta \rho$, solid cyan).}
+			 atmospheric pressure $p_\infty$ ($\Delta p$, solid cyan).}
 	\label{fig:actuator_disc}
 \end{figure}
 
@@ -29,7 +98,7 @@ Ein Senkrechtstarter kann nur dann senkrecht abheben, wenn die Schubkraft größ
 \todo{two different types of thrust, static and ...}
 
 Static thrust\index{thrust!static} % Standschub
-is the thrust force applied by an unmoved (\text{static}) system to its environment.
+is the thrust force applied by an unmoved (\textit{static}) system to its environment.
 
 In case of a propeller based system, static thrust is the amount of thrust 
 produced by the propeller when it is stationary in relation to the ground.

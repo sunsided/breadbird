@@ -2,4 +2,12 @@
 \newcommand{\indexed}[1]{#1\index{#1}}
 
 % SI units in paragraphs
-\newcommand{\withunit}[1]{\textcolor{darkgray}{\left[\si{#1}\right]}}
+%\newcommand{\withunit}[1]{\ensuremath{\textcolor{darkgray}{\left[\si{#1}\right]}}}
+\newcommand{\withunit}[1]{\ensuremath{\textcolor{darkgray}{\si[per-mode=fraction,fraction-function=\sfrac]{#1}}}}
+\newcommand{\withunitx}[2]{\ensuremath{\textcolor{darkgray}{\SI[per-mode=fraction,fraction-function=\sfrac]{#1}{#2}}}}
+
+% style commands
+\newcommand{\name}[1]{\textsc{#1}}
+
+% braces!
+\newcommand{\parens}[1]{\ensuremath{\left(#1\right)}}

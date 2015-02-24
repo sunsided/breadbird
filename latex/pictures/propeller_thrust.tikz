@@ -62,7 +62,7 @@
 
 \begin{tikzpicture}
 	
-	\draw [<->] (0,2) node (yaxis) [above] {$+h$} -- (0,0) -- (2,0) node (p_inf) [above right,cyan] {$\rho_{\infty}$} -- (4,0) node (xaxis) [above right,cyan] {$\Delta \rho$} node (xaxis) [below right,red] {$\Delta v$};
+	\draw [<->] (0,2) node (yaxis) [above] {$+h$} -- (0,0) -- (2,0) node (p_inf) [above right,cyan] {$p_{\infty}$} -- (4,0) node (xaxis) [above right,cyan] {$\Delta p$} node (xaxis) [below right,red] {$\Delta v$};
 	\draw [->] (0,0) -- (0,-2) node (xaxis) [below] {$-h$};
 	\draw [cyan,dotted] (2,2) -- (2,-2);
 	
