@@ -24,3 +24,29 @@
 %\usepackage{pstricks-add}
 
 \graphicspath{{pictures/}}
+
+
+%----------------------------------------------------------------------------------------
+%	THE ROTOR 
+%----------------------------------------------------------------------------------------
+
+\tikzset{
+    rotor/.pic={
+    	\def\offset{0.125} 
+		\def\radius{0.16} 
+    
+        \def\width{0.5}
+		\def\length{3}
+		\def\belly{2} 
+		
+		\def\bladeopacity{0.3}
+		\def\diskopacity{0.8}
+		
+		%\draw [gray!50]  (\offset,\offset) -- (\offset+\belly,\width) -- (\length,0) -- (\offset+\belly,-\width) -- (\offset,-\offset); 
+		\draw [cyan, fill=cyan, fill opacity=\bladeopacity] plot [smooth, tension=0.8] coordinates { (\offset,\offset) (\offset+\belly,\width) (\length,0) (\offset+\belly,-\width) (\offset,-\offset)};
+				
+		%\draw [gray!50]  (-\offset,\offset) -- (-\offset-\belly,\width) -- (-\length,0) -- (-\offset-\belly,-\width) -- (-\offset,-\offset); 
+		\draw [cyan, fill=cyan, fill opacity=\bladeopacity] plot [smooth, tension=0.8] coordinates { (-\offset,\offset) (-\offset-\belly,\width) (-\length,0) (-\offset-\belly,-\width) (-\offset,-\offset)};
+		
+		\draw [, fill=cyan, fill opacity=\diskopacity] (0,0) circle (\radius);
+    }}

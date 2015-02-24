@@ -1,0 +1,47 @@
+% from tdycyl at http://tex.stackexchange.com/questions/63370/drawing-3d-cylinder
+\newcommand{\rotorcylinder}[5]{% origin x, origin y, origin z, radius, height
+    \path (1,0,0);
+    \pgfgetlastxy{\cylxx}{\cylxy}
+    \path (0,1,0);
+    \pgfgetlastxy{\cylyx}{\cylyy}
+    \path (0,0,1);
+    \pgfgetlastxy{\cylzx}{\cylzy}
+    \pgfmathsetmacro{\cylt}{(\cylzy * \cylyx - \cylzx * \cylyy)/ (\cylzy * \cylxx - \cylzx * \cylxy)}
+    \pgfmathsetmacro{\ang}{atan(\cylt)}
+    \pgfmathsetmacro{\ct}{1/sqrt(1 + (\cylt)^2)}
+    \pgfmathsetmacro{\st}{\cylt * \ct}
+    \filldraw[fill=white, draw opacity=0.5, fill opacity=0] (#4*\ct+#1,#4*\st+#2,#3) -- ++(0,0,#5) arc[start angle=\ang,delta angle=-180,radius=#4] -- ++(0,0,-#5) arc[start angle=\ang+180,delta angle=-180,radius=#4];
+    \filldraw[fill=white, draw opacity=0.5, fill opacity=0] (#1,#2,#3+#5) circle[radius=#4];
+}
+
+\centering
+\begin{minipage}[b]{0.4\textwidth}
+
+	\tdplotsetmaincoords{75}{145}
+	\begin{tikzpicture}[tdplot_main_coords]
+
+		\draw [black, dotted, fill=black, fill opacity=0.1] (0,0) circle (3);
+		\pic{rotor};
+
+		\rotorcylinder{0}{0}{-2}{3}{4};
+		\draw [dotted, >->] (0,0,2) -- (0,0,-2);
+		
+	\end{tikzpicture}
+
+\end{minipage}
+\hfill
+\begin{minipage}[b]{0.5\textwidth}
+
+\begin{tikzpicture}
+	
+	\draw [<->] (0,2) node (yaxis) [above] {$+h$} -- (0,0) -- (2,0) node (p_inf) [above right,cyan] {$\rho_{\infty}$} -- (4,0) node (xaxis) [above right,cyan] {$\Delta \rho$} node (xaxis) [below right,red] {$\Delta v$};
+	\draw [->] (0,0) -- (0,-2) node (xaxis) [below] {$-h$};
+	\draw [cyan,dotted] (2,2) -- (2,-2);
+	
+	\draw [cyan] plot [smooth,tension=1] coordinates {(2,2) (1.5,0.5) (0,0)};
+	\draw [cyan] plot [smooth,tension=1] coordinates {(2,-2) (2.5,-0.5) (4,0)};
+	
+	\draw [red,dashed] plot [smooth,tension=1] coordinates {(3.75,-2) (3,-0.5) (1,0.5) (0.25,2)};
+	
+\end{tikzpicture}
+\end{minipage}
