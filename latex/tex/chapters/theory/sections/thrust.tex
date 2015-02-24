@@ -2,7 +2,8 @@
 
 \section{Thrust me, I'm an engine(er)}
 
-Thrust is the propulsive force that strives to move a mass-accelerating system forwards. 
+Thrust % Schubkraft
+is the propulsive force that strives to move a mass-accelerating system forwards. 
 It is a directed reaction force (in the sense of \textsc{Newton}'s \textit{Actio et Reactio})
 that exists only in reaction to the action of accelerating a mass in the first place.
 Thrust is what makes propeller engines, jet propulsion engines, ion drives and garden 
@@ -47,7 +48,7 @@ If the system itself is not moving, i.e. $v_{self} = 0$, then \cref{eq:thrust} s
 \vec{F}_{static} &= -\rho q \vec{v}_{out}.  \label{eq:static_thrust_qv}
 \end{align}
 %
-This is called the static thrust\index{thrust!static}. 
+This is called the static thrust\index{thrust!static}. % Standschub
 Given \cref{eq:outflow_velocity,eq:flowvolume} this can be rewritten to
 %
 \begin{align}
@@ -69,12 +70,17 @@ different ways to obtain the same amount of (static) thrust: The system may have
 	\item a large orifice area $A$ with a small outflow velocity $\vec{v}_{out}$.
 \end{itemize}
 
+More specifically, whenever the area $A$ doubles, the velocity $\vec{v}_{out}$ may halve. 
+We will come back on this later, as this may have an interesting impact on actuator design decisions, specifically in the choice of motor and propeller pairs.
+
 \todo{come back to this later and explain the rotor and motor combinations}
 
-\begin{quote}
-So basically, thrust is air pushing against air. There are two Components of Thrust; The "Size" (power) and "Velocity" (speed) of that push. A 8.5 inch has twice the area as a 6 inch pipe. A 8.5v inch pipe with air coming out of it at 40mph will produce the same thrust as a 6 inch pipe with a air coming out of it at 80mph. A 7.25 inch pipe with a air coming out of it at 60mph will be a balance between the two extremes. All three pipes are moving exactly the same amount of air and have the same amount of thrust. If like motors (with the same amp draw) produce the thrust in each pipe; the 8.5 inch pipe’s thrust will be powerful and slow, the 6 inch pipe’s thrust will be weak and fast, and the 7.25 inch pipe will have a balance of power and speed.
-\end{quote}
-\todo{http://www.rcpowers.com/community/threads/the-components-of-thrust-how-to-choose-a-propeller-tutorial.15443/}
+\subsection{The actuator disk concept}
+
+\Cref{eq:flowvolume,eq:static_thrust_qv} showed how the thrust of a propulsing system is dependent on the orifice area of the outflowing mass stream. 
+In propeller based systems, this area may be defined as the disk described by the rotating propeller blades, which is then called the actuator disk concept.
+
+
 
 \begin{quote}
 Ein Senkrechtstarter kann nur dann senkrecht abheben, wenn die Schubkraft größer ist als die Gewichtskraft des Flugzeugs, siehe auch Schub-Gewicht-Verhältnis. Bei einem 17 Tonnen schweren Hawker Siddeley Harrier z. B. reichen die 200 kN aus seinem Triebwerk aus, um ihn vertikal zu beschleunigen. Bei Starrflügelflugzeugen muss der Schub nur einen Bruchteil des Eigengewichts betragen, da der Flügel den anderen Teil des Eigengewichtes „trägt“.
