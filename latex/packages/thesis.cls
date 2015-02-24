@@ -140,7 +140,8 @@
 \usepackage[pdfpagemode={UseOutlines},bookmarks=true,bookmarksopen=true,
    bookmarksopenlevel=0,bookmarksnumbered=true,hypertexnames=false,
    colorlinks,linkcolor={blue},citecolor={blue},urlcolor={red},
-   pdfstartview={FitV},unicode,breaklinks=true]{hyperref}
+   pdfstartview={FitV},unicode,breaklinks=true,
+   plainpages=false,pdfpagelabels,pagebackref]{hyperref}
 \usepackage{cleveref}
 \pdfstringdefDisableCommands{
    \let\\\space
