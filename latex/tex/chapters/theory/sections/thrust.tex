@@ -4,88 +4,22 @@
 
 Thrust % Schubkraft
 is the propulsive force that strives to move a mass-accelerating system forwards. 
-It is a directed reaction force (in the sense of \textsc{Newton}'s \textit{Actio et Reactio})
+It is a reaction force (in the sense of \textsc{Newton}'s \textit{Actio et Reactio})
 that exists only in reaction to the action of accelerating a mass in the first place.
 Thrust is what makes propeller engines, jet propulsion engines, ion drives and garden 
 hoses\footnote{Garden hoses effectively are affordable jet propulsion engines.} move forward.
 
-\todo{\url{http://www.engineeringtoolbox.com/jet-discharge-propulsion-force-d_1868.html}}
+For the further discussion, the following model of a propeller based system will be used:
 
-The velocity of the jet of accelerated mass(es) is given as
-%
-\begin{align}
-\vec{v}_{out} = \sqrt{2\frac{p_1 - p_\infty}{\rho}} \label{eq:outflow_velocity}
-\end{align}
-%
-where $v_{out}$ in \withunit{\metre\per\second} is the outflow velocity,
-$p_1$ in \withunit{\newton\per\square\metre} is the pressure before the jet,
-$p_\infty$ is the ambient pressure after the jet, and
-$\rho$ in \withunit{\kilo\gram\per\cubic\metre} is the density of the mass being accelerated.
-
-Given the flow volume $q$ in \withunit{\cubic\metre\per\second} -- i.e. the amount
-of mass moved over time\footnote{When
-thinking about the garden hose, the flow volume might be easier to understand when expressed in terms of \withunitx{1000}{\litre\per\second} rather than \withunitx{1}{\cubic\metre\per\second}, which technically is the same.} --
-%
-\begin{align}
-q = A\vec{v}_{out} \label{eq:flowvolume}
-\end{align}
-%
-where $A$ is the orifice area, i.e. the size of the opening in \withunit{\square\metre}, the thrust can be calculated as
-%
-\begin{align}
-\vec{F} = -\rho q \left( \vec{v}_{out} - \vec{v}_{self} \right) \label{eq:thrust}
-\end{align}
-%
-where $v_{self}$ is the velocity of the jet engine (e.g. the garden hose) itself. Essentially, if the outflow velocity is larger than the velocity
-of the accelerating system, then the propulsion force is positive, which in
-turn will accelerate the system as a whole.
-
-\todo{now if the system is moving faster than its jet velocity $v_{out}$, does that mean the thrust is negative and thus makes the system slower?}
-
-If the system itself is not moving, i.e. $v_{self} = 0$, then \cref{eq:thrust} simplifies to
-%
-\begin{align}
-\vec{F}_{static} &= -\rho q \vec{v}_{out}.  \label{eq:static_thrust_qv}
-\end{align}
-%
-This is called the static thrust\index{thrust!static}. % Standschub
-Given \cref{eq:outflow_velocity,eq:flowvolume} this can be rewritten to
-%
-\begin{align}
-\vec{F}_{static} &= -\rho A \parens{\vec{v}_{out}}^2 \label{eq:static_thrust_Av} \\
-%                 &= -\rho 2 A \frac{p_1 - p_\infty}{\rho} \\
-				 &= -2A \parens{ p_1 - p_\infty }
-\end{align}
-%
-stating that if the system increases the pressure of the mass to an amount
-larger than the atmospheric pressure, then this will result in a propulsing
-force proportional to the area of the jet stream and the pressure difference.
-
-Both \cref{eq:static_thrust_qv,eq:static_thrust_Av} are directly dependent on
-the flow volume (see \cref{eq:flowvolume}). As such, it can be seen that there are
-different ways to obtain the same amount of (static) thrust: The system may have either
-
-\begin{itemize}
-	\item a small orifice area $A$ with a high outflow velocity $\vec{v}_{out}$, or
-	\item a large orifice area $A$ with a small outflow velocity $\vec{v}_{out}$.
-\end{itemize}
-
-More specifically, whenever the area $A$ doubles, the velocity $\vec{v}_{out}$ may halve. 
-We will come back on this later, as this may have an interesting impact on actuator design decisions, specifically in the choice of motor and propeller pairs.
-
-\todo{come back to this later and explain the rotor and motor combinations}
-
-\subsection{The actuator disk concept}
-
-\Cref{eq:flowvolume,eq:static_thrust_qv} showed how the thrust of a propulsing system is dependent on the orifice area of the outflowing mass stream. 
-In propeller based systems, this area may be defined as the disk described by the rotating propeller blades, which is then called the actuator disk concept.
-
-
-
-\begin{quote}
-Ein Senkrechtstarter kann nur dann senkrecht abheben, wenn die Schubkraft größer ist als die Gewichtskraft des Flugzeugs, siehe auch Schub-Gewicht-Verhältnis. Bei einem 17 Tonnen schweren Hawker Siddeley Harrier z. B. reichen die 200 kN aus seinem Triebwerk aus, um ihn vertikal zu beschleunigen. Bei Starrflügelflugzeugen muss der Schub nur einen Bruchteil des Eigengewichts betragen, da der Flügel den anderen Teil des Eigengewichtes „trägt“.
-\end{quote}
-\todo{http://de.wikipedia.org/wiki/Schub}
+Air at atmospheric pressure $p_\infty$ will be sucked into our propeller engine; 
+this is called the \textit{inflow}. 
+While it approaches the rotor area, its velocity $v_i$ increases while pressure $p_i$ decreases.
+This is due to the fact that the propeller effectively removes air from the inflow
+environment by "shoveling" it away, creating an underpressure, 
+which will be explained in terms of energy conservation in \cref{subsec:momentum_theory}.
+Across the rotor area, air pressure is increased by an amount of $\Delta p$ and is promoted
+to the \textit{outflow}. As the pressure begins to fall again towards atmospheric pressure $p_\infty$, the outflow velocity further raises towards its final value, $v_\infty$. 
+This increase of velocity then signs responsible for the resulting thrust.
 
 \begin{figure}
 	\input{pictures/propeller_thrust.tikz}
@@ -98,6 +32,119 @@ Ein Senkrechtstarter kann nur dann senkrecht abheben, wenn die Schubkraft größ
 			 atmospheric pressure $p_\infty$ ($\Delta p$, solid cyan).}
 	\label{fig:actuator_disc}
 \end{figure}
+
+\subsection{Momentum theory and the disk actuator concept}
+\label{subsec:momentum_theory}
+
+Under the principle of energy conservation and given the assumption of an incompressible mass flow, \name{Bernoulli}'s equation of pressure
+%
+\begin{align}
+p + \rho g h + \frac{1}{2}\rho v^2 = \text{const.}
+\end{align}
+%
+may be applied to the inflow and outflow of the accelerating system \cite{seddon2002}.
+Here, $p$, given in \withunit{\newton\per\square\metre}, is the pressure of the medium, 
+$\rho$, in \withunit{\kilo\gram\per\cubic\metre}, is its density,
+$v$, in \withunit{\metre\per\second}, the flow velocity,
+$g$, in \withunitx{\sim 9.81}{\metre\per\square\second}, the gravitational acceleration and
+$h$, in \withunit{\metre}, the height above a reference point.
+Since for our purposes the reference height $h$ may be assumed to be zero, the term $\rho g h$ may be ommited, such that
+%
+\begin{align}
+p + \frac{1}{2}\rho v^2 = \text{const.} \label{eq:bernoulli}
+\end{align}
+%
+We know that the atmospheric pressure $p_\infty$ is related to the inflow velocity $v_i$ and pressure $p_i$ by
+%
+\begin{align}
+p_\infty = p_i + \frac{1}{2}\rho v_i^2 \label{eq:bernoulli_inflow}
+\end{align}
+%
+From \cref{eq:bernoulli_inflow} and the pressure increase $\Delta p$ across the
+rotor area, we know that 
+%
+\begin{align}
+ \parens{p_i + \frac{1}{2}\rho v_i^2 } + \Delta p &= \parens{ p_\infty + \frac{1}{2}\rho v_\infty^2 } \label{eq:bernoulli_outflow}
+\end{align}
+%\todo{http://en.wikipedia.org/wiki/Blade_element_momentum_theory}
+%
+which, by applying \cref{eq:bernoulli_inflow} again, leads to
+%
+\begin{align}
+ \Delta p = \frac{1}{2}\rho v_\infty^2 
+ \quad \Leftrightarrow \quad 
+ v_\infty = \sqrt{2\frac{\Delta p}{\rho}} \label{eq:deltap_vinfty} 
+\end{align}
+%
+\Cref{eq:deltap_vinfty} shows that the final outstream velocity $v_\infty$ directly depends on the pressure increase $\Delta p$ induced by the rotor.
+
+Given the circular orifice area $A = \pi r^2$ in \withunit{\square\metre} that is described by the rotating propeller blades of length $r$ in \withunit{\metre}
+(the so-called \textit{rotor disk}), 
+we can define the volumetric flow rate\footnote{When
+thinking about the garden hose, the flow volume might be easier to understand when expressed in terms of \withunitx{1000}{\litre\per\second} rather than \withunitx{1}{\cubic\metre\per\second}, which technically is the same.} % Volumenstrom
+(or flow volume, given in \withunit{\cubic\metre\per\second}) by
+%
+\begin{align}
+q = A v_{\infty} \label{eq:flowvolume}
+\end{align}
+%
+With this, the thrust can be calculated as \cite{durand1935}
+%
+\begin{align}
+F &= \rho q \left( v_{\infty} - v_{self} \right) \\
+  &= \rho A v_{\infty} \left( v_{\infty} - v_{self} \right) \label{eq:thrust}
+\end{align}
+%
+where $v_{self}$ is the velocity of the propeller engine itself. 
+Essentially, if the outflow velocity is larger than the velocity
+of the accelerating system, then the propulsion force is positive, which in
+turn will accelerate the system as a whole.
+
+\todo{now if the system is moving faster than its jet velocity $v_{out}$, does that mean the thrust is negative and thus makes the system slower?}
+
+If the system itself is not moving, i.e. $v_{self} = 0$, then \cref{eq:thrust} simplifies to
+%
+\begin{align}
+F_{static} &= -\rho A \parens{v_{out}}^2 \label{eq:static_thrust_Av}
+\end{align}
+%
+This is called the static thrust\index{thrust!static}. % Standschub
+
+Given \cref{{eq:deltap_vinfty}} this can be rewritten to
+%
+\begin{align}
+F_{static} 
+                 &= -\rho A \parens{\sqrt{2\frac{\Delta p}{\rho}}}^2 
+			  	  = -2A \Delta p
+\end{align}
+%
+stating that if the system increases the pressure of the mass to an amount
+larger than the atmospheric pressure, then this will result in a propulsing
+force proportional to the area of the jet stream and the pressure difference
+induced by the rotor.
+
+As \cref{eq:static_thrust_Av} is directly dependent on
+the flow volume given in \cref{eq:flowvolume}, it can be seen that there are
+different ways to obtain the same amount of (static) thrust: The system may either have
+
+\begin{itemize}
+	\item a small orifice area $A$ with a high outflow velocity $\vec{v}_{out}$, or
+	\item a large orifice area $A$ with a small outflow velocity $\vec{v}_{out}$.
+\end{itemize}
+
+More specifically, whenever the area $A$ doubles, the velocity $\vec{v}_{out}$ may halve. 
+We will come back to this later, as this has an interesting impact on actuator design decisions, specifically in the choice of motor and propeller pairs.
+
+\todo{come back to this later and explain the rotor and motor combinations}
+
+\todo[size=\Large,color=red]{Now how does this relate to rotor speed?}
+
+
+\begin{quote}
+Ein Senkrechtstarter kann nur dann senkrecht abheben, wenn die Schubkraft größer ist als die Gewichtskraft des Flugzeugs, siehe auch Schub-Gewicht-Verhältnis. Bei einem 17 Tonnen schweren Hawker Siddeley Harrier z. B. reichen die 200 kN aus seinem Triebwerk aus, um ihn vertikal zu beschleunigen. Bei Starrflügelflugzeugen muss der Schub nur einen Bruchteil des Eigengewichts betragen, da der Flügel den anderen Teil des Eigengewichtes „trägt“.
+\end{quote}
+\todo{http://de.wikipedia.org/wiki/Schub}
+
 
 \section{Static thrust}
 
