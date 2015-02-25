@@ -36,6 +36,7 @@ This increase of velocity then signs responsible for the resulting thrust.
 \subsection{Momentum theory and the disk actuator concept}
 \label{subsec:momentum_theory}
 
+We will assume the air to be an incompressible fluid, i.e. no pressure difference will be experienced across the propeller area. 
 Under the principle of energy conservation and given the assumption of an incompressible mass flow, \name{Bernoulli}'s equation of pressure
 %
 \begin{align}
@@ -85,13 +86,22 @@ thinking about the garden hose, the flow volume might be easier to understand wh
 (or flow volume, given in \withunit{\cubic\metre\per\second}) by
 %
 \begin{align}
-q = A v_{\infty} \label{eq:flowvolume}
+\dot{q} = A v_{\infty} \label{eq:flowvolume}
 \end{align}
 %
-With this, the thrust can be calculated as \cite{durand1935}
+and the volumetric flow rate (in \withunit{\kilo\gram\per\second}) as
 %
 \begin{align}
-F &= \rho q \left( v_{\infty} - v_{self} \right) \\
+\dot{m} = \rho \dot{q} \label{eq:massflow}
+\end{align}
+%
+Where the notation $\dot{m}$ is used to denote mass from mass over time.
+With this, the thrust can be calculated as \cite{durand1935}
+\todo{nah! we need a better reason. where does this equation come from? F= ...what?}
+\todo{also, is $\dot{m}=\rho q$?}
+%
+\begin{align}
+T &= \dot{m} \left( v_{\infty} - v_{self} \right) \\
   &= \rho A v_{\infty} \left( v_{\infty} - v_{self} \right) \label{eq:thrust}
 \end{align}
 %
@@ -105,7 +115,7 @@ turn will accelerate the system as a whole.
 If the system itself is not moving, i.e. $v_{self} = 0$, then \cref{eq:thrust} simplifies to
 %
 \begin{align}
-F_{static} &= -\rho A \parens{v_{out}}^2 \label{eq:static_thrust_Av}
+T_{0} &= -\rho A \parens{v_{out}}^2 \label{eq:static_thrust_Av}
 \end{align}
 %
 This is called the static thrust\index{thrust!static}. % Standschub
@@ -113,7 +123,7 @@ This is called the static thrust\index{thrust!static}. % Standschub
 Given \cref{{eq:deltap_vinfty}} this can be rewritten to
 %
 \begin{align}
-F_{static} 
+T_{0} 
                  &= -\rho A \parens{\sqrt{2\frac{\Delta p}{\rho}}}^2 
 			  	  = -2A \Delta p
 \end{align}
@@ -121,7 +131,7 @@ F_{static}
 stating that if the system increases the pressure of the mass to an amount
 larger than the atmospheric pressure, then this will result in a propulsing
 force proportional to the area of the jet stream and the pressure difference
-induced by the rotor.
+induced by the propeller.
 
 As \cref{eq:static_thrust_Av} is directly dependent on
 the flow volume given in \cref{eq:flowvolume}, it can be seen that there are
