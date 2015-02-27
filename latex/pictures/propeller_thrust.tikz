@@ -62,11 +62,11 @@
 
 \begin{tikzpicture}
 	
-	\draw [<->] (0,2) node (yaxis) [above] {$+h$} -- 
+	\draw [<->] (0,2) node (yaxis) [above,draw,circle,inner sep=0.5,outer sep=2.5] {$0$} -- 
 				(0,0) node (v_i)   [below right,cyan] {$p_i$} -- 
 				(2,0) node [below left,red] {$v_i$} -- 
 				(4,0) node (xaxis) [above right,cyan] {$\Delta p$} node (xaxis) [below right,red] {$\Delta v$};
-	\draw [->] (0,0) -- (0,-2) node (xaxis) [below] {$-h$};
+	\draw [->] (0,0) -- (0,-2) node (xaxis) [below,draw,circle,inner sep=0.5,outer sep=2.5] {$3$};
 	
 	\draw [cyan] plot [smooth,tension=1] coordinates {(2,2) (1.5,0.5) (0,0)};
 	\draw [cyan] plot [smooth,tension=1] coordinates {(2,-2) (2.5,-0.5) (4,0)};

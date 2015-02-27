@@ -3,6 +3,9 @@
 \usepackage{float} % lädt das Paket zur Verwendung von zusätzlichen Positionsbefehlen
 \usepackage{tikz} % http://cremeronline.com/LaTeX/minimaltikz.pdf
 \usepackage{tikz-3dplot} % ftp://ftp.rrzn.uni-hannover.de/pub/mirror/tex-archive/graphics/pgf/contrib/tikz-3dplot/tikz-3dplot_documentation.pdf
+
+\usepackage{calc} % for calculating coordinates within TikZ
+
 \usepackage{esk} % http://www.bitlib.net/mirror/ctan/macros/latex/contrib/esk/esk.pdf
 \usetikzlibrary{decorations.pathreplacing}
 \usetikzlibrary{decorations.markings}
@@ -25,6 +28,17 @@
 
 \graphicspath{{pictures/}}
 
+%----------------------------------------------------------------------------------------
+%	TikZ BASED TEXT HACKS
+%----------------------------------------------------------------------------------------
+
+% http://tex.stackexchange.com/questions/7032/good-way-to-make-textcircled-numbers
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+    \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+% ncircled is narrow circle
+\newcommand*\ncircled[1]{\tikz[baseline=(char.base)]{
+    \node[shape=circle,draw,inner sep=1pt] (char) {#1};}}
 
 %----------------------------------------------------------------------------------------
 %	THE ROTOR 
@@ -32,6 +46,8 @@
 
 \tikzset{
     rotor/.pic={
+    	\def\rotorcolor{black}
+
     	\def\offset{0.125} 
 		\def\radius{0.16} 
     
@@ -43,10 +59,10 @@
 		\def\diskopacity{0.8}
 		
 		%\draw [gray!50]  (\offset,\offset) -- (\offset+\belly,\width) -- (\length,0) -- (\offset+\belly,-\width) -- (\offset,-\offset); 
-		\draw [cyan, fill=cyan, fill opacity=\bladeopacity] plot [smooth, tension=0.8] coordinates { (\offset,\offset) (\offset+\belly,\width) (\length,0) (\offset+\belly,-\width) (\offset,-\offset)};
+		\draw [\rotorcolor, fill=\rotorcolor, fill opacity=\bladeopacity] plot [smooth, tension=0.8] coordinates { (\offset,\offset) (\offset+\belly,\width) (\length,0) (\offset+\belly,-\width) (\offset,-\offset)};
 				
 		%\draw [gray!50]  (-\offset,\offset) -- (-\offset-\belly,\width) -- (-\length,0) -- (-\offset-\belly,-\width) -- (-\offset,-\offset); 
-		\draw [cyan, fill=cyan, fill opacity=\bladeopacity] plot [smooth, tension=0.8] coordinates { (-\offset,\offset) (-\offset-\belly,\width) (-\length,0) (-\offset-\belly,-\width) (-\offset,-\offset)};
+		\draw [\rotorcolor, fill=\rotorcolor, fill opacity=\bladeopacity] plot [smooth, tension=0.8] coordinates { (-\offset,\offset) (-\offset-\belly,\width) (-\length,0) (-\offset-\belly,-\width) (-\offset,-\offset)};
 		
-		\draw [, fill=cyan, fill opacity=\diskopacity] (0,0) circle (\radius);
+		\draw [fill=\rotorcolor, fill opacity=\diskopacity] (0,0) circle (\radius);
     }}

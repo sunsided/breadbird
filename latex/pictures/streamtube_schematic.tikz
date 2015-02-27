@@ -1,0 +1,118 @@
+\begin{tikzpicture}
+
+\newcommand{\streamtube}{
+    \draw (-5,0.5) .. controls (-4,0.5) and (-5,0.5) .. (-4,0.5) .. controls (0,0.5) and (0,-0.5) .. (4,-0.5) .. controls (5,-0.5) and (4,-0.5) .. (5,-0.5);
+}
+
+% Schematische Darstellung der Strahltheorie (momentum theory)
+
+% oberer Teil der stream tube
+\begin{scope}[shift={(0,1.5)}]
+	\streamtube;
+\end{scope}
+
+% unterer Teil der stream tube
+\begin{scope}[shift={(0,-1.5)},yscale=-1]
+	\streamtube;
+\end{scope}
+
+% Propellerebene (actuator disk)
+\coordinate (propeller_upper) at (0,1.5);
+\coordinate (propeller_upper_quarter) at (0,0.75);
+\coordinate (propeller_center) at (0,0);
+\coordinate (propeller_lower_quarter) at (0,-0.75);
+\coordinate (propeller_lower) at (0,-1.5);
+\draw [line width=1]  (propeller_upper) node (actuator_disk_label) [above=0.5,align=left] {actuator disk} -- 
+                                    (propeller_center) -- 
+                                    (propeller_lower);
+
+\draw [->] (actuator_disk_label) -- ($(propeller_upper)+(0,0.2)$);
+
+% propeller hub
+\draw [fill=white] 
+           ($(propeller_center)+(-0.2,0)$) -- 
+           ($(propeller_center)+(0.1,0.15)$) -- 
+           ($(propeller_center)+(0.1,-0.15)$) --
+           ($(propeller_center)+(-0.2,0)$);
+
+% upstream event horizon
+\coordinate (upstream_upper) at (-5,2);
+\coordinate (upstream_upper_quarter) at (-5,1);
+\coordinate (upstream_center) at (-5,0);
+\coordinate (upstream_lower_quarter) at (-5,-0.75);
+\coordinate (upstream_lower) at (-5,-2);
+\draw [dotted]  (upstream_upper) -- 
+                                    (upstream_center) -- 
+                                    (upstream_lower);
+
+% downstream event horizon
+\coordinate (downstream_upper) at (5,1);
+\coordinate (downstream_upper_quarter) at (5,0.5);
+\coordinate (downstream_center) at (5,0);
+\coordinate (downstream_lower_quarter) at (5,-0.75);
+\coordinate (downstream_lower) at (5,-1);
+\draw [dotted]  (downstream_upper) -- 
+                                    (downstream_center) -- 
+                                    (downstream_lower);
+
+% streamtube label
+%\node (streamtube_label) at (upstream_upper) [above right=5.6] {streamtube};
+
+% flow arrow
+\draw [dotted] ($(upstream_center)+(0.25,0)$) -- 
+                         ($(downstream_center)-(0.25,0)$);
+
+% upstream radius
+\draw [|<->|] ($(upstream_upper)-(0.25,0)$) -- 
+			 ($(upstream_upper_quarter)-(0.25,0)$) node [left] {$r_u$} --
+                     ($(upstream_center)-(0.25,0)$);
+
+% downstream radius
+\draw [|<->|] ($(downstream_upper)+(0.25,0)$) -- 
+			 ($(downstream_upper_quarter)+(0.25,0)$) node [right] {$r_d$} --
+                     ($(downstream_center)+(0.25,0)$);
+
+% propeller radius
+\draw [|<->|] ($(propeller_upper)-(0.75,0)$) -- 
+			 ($(propeller_upper_quarter)-(0.75,0)$) node [left] {$r_r$} --
+                     ($(propeller_center)-(0.75,0)$);
+
+% area markers
+\node [draw,circle,inner sep=0.5,outer sep=2.5] (area_0) at ($(upstream_lower)-(0,0.5)$) {0};
+\node [draw,circle,inner sep=0.5,outer sep=2.5] (area_1) at ($(propeller_lower)-(0.25,1)$) {1};
+\node [draw,circle,inner sep=0.5,outer sep=2.5] (area_2) at ($(propeller_lower)-(-0.25,1)$) {2};
+\node [draw,circle,inner sep=0.5,outer sep=2.5] (area_3) at ($(downstream_lower)-(0,1.5)$) {3};
+
+% inflow and outflow labels
+\draw [|-|] (area_0) -- (area_1) node [below,midway] {inflow};
+\draw [|-|] (area_2) -- (area_3) node [below,midway] {outflow};
+
+% induced pressure vector
+\draw [cyan,|<->|,line width=1] 
+        ($(propeller_upper_quarter)-(0.25,0)$) --
+        ($(propeller_upper_quarter)+(0.25,0)$)  node [right] {$\Delta p = p_2 - p_1$};
+
+% induced velocity vector
+\draw [red,->,line width=1] 
+        ($(propeller_lower_quarter)-(0.25,0)$) node [left] {$v_i = v_1$} node [cyan,below left] {$p_1$} --
+        ($(propeller_lower_quarter)+(0.25,0)$) node [right] {$v_2 = v_i$} node [cyan,below right] {$p_2$} ;
+
+% upstream velocity vector
+\draw [red,->,line width=1] 
+        ($(upstream_lower_quarter)-(0.25,0)$) node [left] {$v_0$} node [cyan,below left] {$p_\infty = p_0$} --
+        ($(upstream_lower_quarter)+(0.25,0)$);
+        
+% downstream velocity vector
+\draw [red,->,line width=1] 
+        ($(downstream_lower_quarter)-(0.25,0)$) --
+        ($(downstream_lower_quarter)+(0.25,0)$) node [right] {$v_3 > v_0$} node [cyan,below right] {$p_3 = p_\infty$};
+
+% inflow stream lines
+\begin{scope}[black!50,dotted]
+    \draw [->] (-4.5,1.5) .. controls (-2.5,1.5) and (-1,1) .. (-0.5,1);
+    \draw [->] (-4.5,0.75) .. controls (-3,0.75) and (-2,0.5) .. (-0.5,0.5);
+    \draw [->] (-4.5,-1.5) .. controls (-2.5,-1.5) and (-1.625,-1) .. (-0.875,-1);
+    \draw [->] (-4.5,-0.75) .. controls (-3,-0.75) and (-2,-0.5) .. (-0.5,-0.5);
+\end{scope}
+
+\end{tikzpicture}
