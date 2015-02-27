@@ -4,22 +4,33 @@
 
 Thrust % Schubkraft
 is the propulsive force that strives to move a mass-accelerating system forwards. 
-It is a reaction force (in the sense of \textsc{Newton}'s \textit{Actio et Reactio})
-that exists only in reaction to the action of accelerating a mass in the first place.
+It is a reaction force (in the sense of \textsc{Newton}'s \textit{Actio est Reactio})
+that exists only in reaction to the acceleration of a mass, which happens to be a generalized fluid -- air -- in our case.
 Thrust is what makes propeller engines, jet propulsion engines, ion drives and garden 
-hoses\footnote{Garden hoses effectively are affordable jet propulsion engines.} move forward.
+hoses
+%\footnote{Garden hoses effectively are affordable jet propulsion engines.}
+move forward.
 
-For the further discussion, the following model of a propeller based system will be used:
-
-Air at atmospheric pressure $p_\infty$ will be sucked into our propeller engine; 
+In the next \namecref{subsec:momentum_theory}, 
+the \textit{actuator disk} model shown in 
+\cref{fig:streamtube_concept,fig:actuator_disc} \vpageref{fig:streamtube_concept,fig:actuator_disc} 
+will be used for the discussion of our propeller-based system:
+%
+Air at atmospheric pressure $p_0 = p_\infty$ and velocity $v_0$ at location \ncircled{0} will be sucked into our propeller engine; 
 this is called the \textit{inflow}. 
-While it approaches the rotor area, its velocity $v_i$ increases while pressure $p_i$ decreases.
-This is due to the fact that the propeller effectively removes air from the inflow
-environment by "shoveling" it away, creating an underpressure, 
-which will be explained in terms of energy conservation in \cref{subsec:momentum_theory}.
-Across the rotor area, air pressure is increased by an amount of $\Delta p$ and is promoted
-to the \textit{outflow}. As the pressure begins to fall again towards atmospheric pressure $p_\infty$, the outflow velocity further raises towards its final value, $v_\infty$. 
-This increase of velocity then signs responsible for the resulting thrust.
+While it approaches the rotor area at location \ncircled{1}, air velocity increases towards $v_1 = v_i$ (the \textit{induced velocity}); due to energy conservation, pressure decreases towards $p_1$.
+%This is due to the fact that the propeller effectively removes air from the inflow
+%environment by "shoveling" it away, creating an underpressure, 
+%which will be explained in terms of energy conservation in \cref{subsec:momentum_theory}.
+Across the rotor (between \ncircled{1} and \ncircled{2}), air pressure is increased by an amount of $\Delta p$ and is promoted
+to the \textit{outflow} at location \ncircled{2}; 
+however, since the rotor disk is assumed to be infinitesimally thin, air velocity does not change throughout the disk, so that $v_2 = v_1 = v_i$.
+While velocity keeps rising towards $v_3$ between locations \ncircled{2} and \ncircled{3},
+pressure falls again until it reaches atmospheric pressure $p_3 = p_\infty$ at location \ncircled{3}.
+Since energy and momentum of the rotating propeller is promoted to the air, this total increase in air velocity
+$\Delta v = v_3 - v_0$ -- due to the increase in pressure $\Delta p$ -- essentially accounts for the resulting thrust.
+
+
 
 \begin{figure}
 	\input{pictures/streamtube_schematic.tikz}
@@ -27,7 +38,8 @@ This increase of velocity then signs responsible for the resulting thrust.
 	\rule{35em}{0.5pt}
 	\caption[Actuator disk concept of momentum theory]
 			{Actuator disk concept of momentum theory: Visualization of the streamtube,
-			the actuator disk and the segments of conserved energy in the ranges of inflow (\ncircled{0}-\ncircled{1}) and outflow (\ncircled{2}-\ncircled{3}) by means of air pressure $p$ and velocity $v$.}
+			the actuator disk and the segments of conserved energy in the ranges of inflow (\ncircled{0}-\ncircled{1}) and outflow (\ncircled{2}-\ncircled{3}) by means of air pressure $p$ and velocity $v$. \\ The distance \ncircled{1}-\ncircled{2} is
+			assumed to be infinitesimally small.}
 	\label{fig:streamtube_concept}
 \end{figure}
 
@@ -42,6 +54,13 @@ This increase of velocity then signs responsible for the resulting thrust.
 			 atmospheric pressure $p_\infty$ ($\Delta p$, solid cyan).}
 	\label{fig:actuator_disc}
 \end{figure}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% MOMENTUM THEORY / STRAHLTHEORIE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Momentum theory and the disk actuator concept}
 \label{subsec:momentum_theory}
