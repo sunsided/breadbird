@@ -92,20 +92,23 @@
         ($(propeller_upper_quarter)-(0.25,0)$) --
         ($(propeller_upper_quarter)+(0.25,0)$)  node [right] {$\Delta p = p_2 - p_1$};
 
+% velocity and pressure nodes are too close, so add a little bit of fluff there
+\def\mindist{1.75em}
+
 % induced velocity vector
 \draw [red,->,line width=1] 
-        ($(propeller_lower_quarter)-(0.25,0)$) node [left] {$v_i = v_1$} node [cyan,below left] {$p_1$} --
-        ($(propeller_lower_quarter)+(0.25,0)$) node [right] {$v_2 = v_i$} node [cyan,below right] {$p_2$} ;
+        ($(propeller_lower_quarter)-(0.25,0)$) node [left] {$\vec{v}_i = \vec{v}_1$} node [cyan,below left,minimum height=\mindist] {$p_1$} --
+        ($(propeller_lower_quarter)+(0.25,0)$) node [right] {$\vec{v}_2 = \vec{v}_i$} node [cyan,below right,minimum height=\mindist] {$p_2$} ;
 
 % upstream velocity vector
 \draw [red,->,line width=1] 
-        ($(upstream_lower_quarter)-(0.25,0)$) node [left] {$v_0$} node [cyan,below left] {$p_\infty = p_0$} --
+        ($(upstream_lower_quarter)-(0.25,0)$) node [left] {$\vec{v}_0$} node [cyan,below left,minimum height=\mindist] {$p_\infty = p_0$} --
         ($(upstream_lower_quarter)+(0.25,0)$);
         
 % downstream velocity vector
 \draw [red,->,line width=1] 
         ($(downstream_lower_quarter)-(0.25,0)$) --
-        ($(downstream_lower_quarter)+(0.25,0)$) node [right] {$v_3 > v_0$} node [cyan,below right] {$p_3 = p_\infty$};
+        ($(downstream_lower_quarter)+(0.25,0)$) node [right] {$\vec{v}_3 > \vec{v}_0$} node [cyan,below right,minimum height=\mindist] {$p_3 = p_\infty$};
 
 % inflow stream lines
 \begin{scope}[black!50,dotted]
