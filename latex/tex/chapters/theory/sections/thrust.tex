@@ -108,54 +108,86 @@ which, by applying \cref{eq:bernoulli_inflow} again, leads to
 %
 \Cref{eq:deltap_vinfty} shows that the final outstream velocity $v_\infty$ directly depends on the pressure increase $\Delta p$ induced by the rotor.
 
-Given the circular orifice area $A = \pi r^2$ in \withunit{\square\metre} that is described by the rotating propeller blades of length $r$ in \withunit{\metre}
-(the so-called \textit{rotor disk}), 
-we can define the volumetric flow rate\footnote{When
-thinking about the garden hose, the flow volume might be easier to understand when expressed in terms of \withunitx{1000}{\litre\per\second} rather than \withunitx{1}{\cubic\metre\per\second}, which technically is the same.} % Volumenstrom
-(or flow volume, given in \withunit{\cubic\metre\per\second}) by
-%
-\begin{align}
-\dot{q} = A v_{\infty} \label{eq:flowvolume}
-\end{align}
-%
-and the volumetric flow rate (in \withunit{\kilo\gram\per\second}) as
-%
-\begin{align}
-\dot{m} = \rho \dot{q} \label{eq:massflow}
-\end{align}
-%
-Where the notation $\dot{m}$ is used to denote mass from mass over time.
-With this, the thrust can be calculated as \cite{durand1935}
-\todo{nah! we need a better reason. where does this equation come from? F= ...what?}
-\todo{also, is $\dot{m}=\rho q$?}
-%
-\begin{align}
-T &= \dot{m} \left( v_{\infty} - v_{self} \right) \\
-  &= \rho A v_{\infty} \left( v_{\infty} - v_{self} \right) \label{eq:thrust}
-\end{align}
-%
-where $v_{self}$ is the velocity of the propeller engine itself. 
-Essentially, if the outflow velocity is larger than the velocity
-of the accelerating system, then the propulsion force is positive, which in
-turn will accelerate the system as a whole.
+Using actuator disk concept, we assume that the area swept out by the rotating propeller blades describes an infinitesimally thin disk (the so-called \textit{rotor disk}) with orifice area $A = 2\pi r$, where
+$r$ (in \withunit{\metre}) is the length of the propeller blades.
+Because of the disk being infinitesimally thin, the air velocity across the disk
+can be assumed to be continuous, 
+i.e. the change in air velocity is $\Delta v = 0$. 
 
+Given the orifice area $A$, we can then define the volumetric flow rate % Volumenstrom
+(or flow volume, given in \withunit{\cubic\metre\per\second})%
+\footnote{When
+thinking about the garden hose, the flow volume might be easier to understand when expressed in terms of \withunitx{1000}{\litre\per\second} rather than \withunitx{1}{\cubic\metre\per\second}, which technically is the same.}
+as the flow of air mass through the disk by
+%
+\begin{align}
+Q = \dot{V} = A v_i \label{eq:flowvolume}
+\end{align}
+%
+where $\dot{V} = \sfrac{\diff V}{\diff t}$, as well as the mass flow rate (in \withunit{\kilo\gram\per\second}) as
+%
+\begin{align}
+\dot{m} = \rho Q = \rho A v_i \label{eq:massflow}
+\end{align}
+%
+where the notation $\dot{m}$ is used to denote mass over time, i.e. $\sfrac{\diff m}{\diff t}$. % Here, $\rho \cdot v$ is the momentum density.
+
+Since the momentum and energy induced by the rotor must be conserved,
+the eventual outflow pressure $p_\infty$ and velocity $v_\infty$ can be used
+to describe the force acting on the outflow through the rotor.
+
+Given the relative speed of air in the outflow
+%
+\begin{align}
+v_{rel} &= v_{\infty} - v_{self}
+\end{align}
+%
+where $v_{self}$ is the velocity of the propeller engine itself\footnote{Instead 
+of $v_{self}$, the \textit{free stream} velocity is generally used 
+to more accurately describe the concept.}, 
+and \name{Newton}'s
+second law of motion
+%
+\begin{align}
+F &= m a = m \frac{\diff v}{\diff t}
+\end{align}
+%
+the force applied to the air in the outstream can be calculated as \cite{durand1935}
+%
+\begin{align}
+F &= \dot{m} v_{rel} \notag \\
+  &= \dot{m} \left( v_{\infty} - v_{self} \right) \\
+  &= \rho A v_i \left( v_{\infty} - v_{self} \right) \label{eq:thrust}
+\end{align}
+%
+This essentially states that if the outflow velocity is larger than the velocity
+of the accelerating system itself, the force applied on the air is positive, which
+results in the thrust 
+%
+\begin{align}
+\vec{F}_T &= -\vec{F}
+\end{align}
+%
 \todo{now if the system is moving faster than its jet velocity $v_{out}$, does that mean the thrust is negative and thus makes the system slower?}
 
 If the system itself is not moving, i.e. $v_{self} = 0$, then \cref{eq:thrust} simplifies to
 %
 \begin{align}
-T_{0} &= -\rho A \parens{v_{out}}^2 \label{eq:static_thrust_Av}
+F_{0} &= \rho A v_i v_\infty \label{eq:static_thrust_Av}
 \end{align}
 %
 This is called the static thrust\index{thrust!static}. % Standschub
 
+\todo{also, $v_\infty = 2v_i$ according to \url{http://aerostudents.com/files/aircraftPerformance/helicopters.pdf}}
+
 Given \cref{{eq:deltap_vinfty}} this can be rewritten to
 %
 \begin{align}
-T_{0} 
+F_{0} 
                  &= -\rho A \parens{\sqrt{2\frac{\Delta p}{\rho}}}^2 
 			  	  = -2A \Delta p
 \end{align}
+\todo{this doesn't follow from above anymore - patch in the $v_\infty = 2v_i$}
 %
 stating that if the system increases the pressure of the mass to an amount
 larger than the atmospheric pressure, then this will result in a propulsing
