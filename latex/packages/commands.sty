@@ -11,3 +11,12 @@
 
 % braces!
 \newcommand{\parens}[1]{\ensuremath{\left(#1\right)}}
+
+% bold math vectors
+\let\oldvec\vec
+%\renewcommand*{\vec}[1]{\ensuremath{\oldvec{\boldsymbol{#1}}}}
+%\newcommand*{\dotvec}[1]{\ensuremath{\dot{\boldsymbol{#1}}}}
+\newcommand*{\dotvec}[1]{\ensuremath{\dot{#1}}}
+
+% pointwise product of matrices and vectors (Hadamard / Schur product)
+\newcommand*{\pointwise}[0]{\ensuremath{\circ}}
