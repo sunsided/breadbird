@@ -13,7 +13,8 @@
 		(center) -- 
 		++ (1,0) node [right] {$\vec{F} = \dot{m} \left(\vec{v} - \vec{v}_d \right)$};
 
-	\draw [->]
+	% disk velocity arrow
+	\draw [->,red]
 		(0,-0.5) -- 
 		(0.5,-0.5) node [right] {$\vec{v}_d$};
 
@@ -34,7 +35,7 @@
 	}
 	\draw [->,dotted,line width=0.6]
 			(-\length,0) --
-			(-0.125,0) node [fill=white,inner sep=2pt,midway] {$\vec{v}$};
+			(-0.125,0) node [preaction={fill=white},inner sep=2pt,midway,red] {$\vec{v}$};
 		
 	% fluid velocity vectors above and below the disk
 	\foreach {\x} in {1.2,1.4} {
