@@ -146,10 +146,11 @@ where $v_{self}$ is the velocity of the propeller engine itself\footnote{Instead
 of $v_{self}$, the \textit{free stream} velocity is generally used 
 to more accurately describe the concept.}, 
 and \name{Newton}'s
-second law of motion
+second law of motion for a constant velocity and variable mass flow rate \cite{book:siekmann2008}
 %
 \begin{align}
-F &= m a = m \frac{\diff v}{\diff t}
+F &= \frac{\diff}{\diff t} \parens{ m v } \\
+  &= \frac{\diff m}{\diff t} v = \dot{m} v \quad \text{if} \quad \sfrac{\diff v}{\diff t} = 0
 \end{align}
 %
 the force applied to the air in the outstream can be calculated as \cite{durand1935}
