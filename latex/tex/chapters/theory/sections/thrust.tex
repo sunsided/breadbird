@@ -35,7 +35,7 @@ $\Delta v = v_3 - v_0$ -- due to the increase in pressure $\Delta p$ -- essentia
 \begin{figure}
 	\input{pictures/streamtube_schematic.tikz}
 
-	\rule{35em}{0.5pt}
+			\rule{35em}{0.5pt}
 	\caption[Actuator disk concept of momentum theory]
 			{Actuator disk concept of momentum theory: Visualization of the streamtube,
 			the actuator disk and the segments of conserved energy in the ranges of inflow (\ncircled{0}-\ncircled{1}) and outflow (\ncircled{2}-\ncircled{3}) by means of air pressure $p$ and velocity $v$. \\ The distance \ncircled{1}-\ncircled{2} is
@@ -144,7 +144,7 @@ to describe the force acting on the outflow through the rotor.
 
 	\rule{35em}{0.5pt}
 	\caption[Mass flow rate and force]
-			{Relation of the mass flow rate $\dot{m}$ acting on a disk of area $A = 2\pi r$ to the resulting force $\vec{F}$.}
+			{Relation of the mass flow rate $\dotvec{m}$ acting on a disk of area $A = 2\pi r$ to the resulting force $\vec{F}$.}
 	\label{fig:mass_flow_force}
 \end{figure}
 
@@ -165,23 +165,25 @@ F &= \frac{\diff m}{\diff t} v = \dot{m} v \quad \mathrm{if} \quad v = \mathrm{c
 %
 which is displayed graphically in \cref{fig:mass_flow_force}.
 
-Given the relative speed of air in the outflow
+Given the relative speed of air in the outflow%
+\footnote{Remember that $v_0$ can be understood as the actuator disk velocity as well as the free stream velocity, depending on the point of view.} 
 %
 \begin{align}
-v_{rel} &= v_3 - v_0
+\vec{v}_{rel} &= \vec{v}_3 - \vec{v}_0
 \end{align}
 %
-where $v_0$ is the velocity of the actuator disk%
-\footnote{Remind that $v_0$ can be understood as the actuator disk velocity as well as the free stream velocity, depending on the point of view.} 
-and using \cref{eq:massflow,eq:newtons_2nd_mdot}, the force applied to the air in the outstream can be calculated \cite{durand1935} as
+as well as \cref{eq:massflow,eq:newtons_2nd_mdot}, the force applied to the air in the outflow can be calculated \cite{durand1935} as
 %
 \begin{align}
-F &= \dot{m} v_{rel} \notag \\
-  &= \dot{m} \left( v_3 - v_0 \right) \\
-  &= \rho A v_i \left( v_3 - v_0 \right) \label{eq:thrust_mdot}
+\vec{F} &= \dotvec{m} \vec{v}_{rel} \notag \\
+		&= \dotvec{m} \pointwise \parens{ \vec{v}_3 - \vec{v}_0 } \\
+		&= \rho A \vec{v}_i \pointwise \parens{ \vec{v}_3 - \vec{v}_0 } \label{eq:thrust_mdot}
 \end{align}
 %
-This essentially states that if the outflow velocity is larger than the velocity
+\todo{that is probably bullshite; test if $\dot{m} = \rho A (\vec{v}_3 - \vec{v}_0)$ fits in better}
+Here $\pointwise$ denotes the entrywise (\textit{Hadamard} or \textit{Schur}) product of two vectors, as the resulting force will still point in the same direction as all of the velocities.
+
+\Cref{eq:thrust_mdot} essentially states that if the outflow velocity is larger than the velocity
 of the accelerating system itself, the force applied on the air is positive.% 
 \footnote{It should be clear that an outflow velocity of $\vec{v}_3 = \vec{v}_0$ does not do anything useful -- no energy would have been transmitted to the outflow at all -- 
 which is why the resulting force would be zero.}

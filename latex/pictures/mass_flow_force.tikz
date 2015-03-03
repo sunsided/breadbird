@@ -11,7 +11,7 @@
 	% force arrow
 	\draw [->,line width=1,magenta] 
 		(center) -- 
-		++ (1,0) node [right] {$\vec{F} = \dot{m} \left(\vec{v} - \vec{v}_d \right)$};
+		++ (1,0) node [right] {$\vec{F} = \dotvec{m} \left(\vec{v} - \vec{v}_d \right)$};
 
 	% disk velocity arrow
 	\draw [->,red]
@@ -51,7 +51,7 @@
 	\draw [magenta,decorate, decoration={brace, amplitude=5pt}]
 		($(disk_lower)-(\length,0)$) --
 		($(disk_upper)-(\length,0)$)
-		node [midway, left=5pt, align=left] {$\rho (2 \pi r) \vec{v} = \dot{m}$};
+		node [midway, left=5pt, align=left] {$\rho (2 \pi r) \vec{v} = \dotvec{m}$};
 
 % m * v ==> m * Delta v
 
