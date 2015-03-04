@@ -74,29 +74,74 @@ Under the principle of energy conservation and given the assumption of an incomp
 p + \rho g h + \frac{1}{2}\rho v^2 = \text{const.}
 \end{align}
 %
-may be applied to the inflow and outflow of the accelerating system \cite{seddon2002}.
-Here, $p$, given in \withunit{\newton\per\square\metre}, is the pressure of the medium, 
-$\rho$, in \withunit{\kilo\gram\per\cubic\metre}, is its density,
+may be applied to the inflow (\ncircled{0}-\ncircled{1}) and outflow (\ncircled{2}-\ncircled{3}) sections of the accelerating system \cite{seddon2002}.
+Here, $p$, given in \withunit{\newton\per\square\metre}, is the air pressure, 
+$\rho$, in \withunit{\kilo\gram\per\cubic\metre}, its density,
 $v$, in \withunit{\metre\per\second}, the flow velocity,
 $g$, in \withunitx{\sim 9.81}{\metre\per\square\second}, the gravitational acceleration and
 $h$, in \withunit{\metre}, the height above a reference point.
-Since for our purposes the reference height $h$ may be assumed to be zero, the term $\rho g h$ may be ommited, such that
+%
+\todo{why may be ignore the $\rho g h$ term? negligible compared to rotor pressure?}
+%
+Since for our purposes the term $\rho g h$ can be assumed to be negligible, it may be ommited, such that
 %
 \begin{align}
 p + \frac{1}{2}\rho v^2 = \text{const.} \label{eq:bernoulli}
 \end{align}
+
+If we apply \cref{eq:bernoulli} to the inflow section, due to energy conservation we obtain
 %
+\begin{align}
+p_\infty + \rho \frac{1}{2} v^2_0 &= p_1 + \rho \frac{1}{2} v^2_i \label{eq:bernoulli_inflow}
+\end{align}
+%
+where we use the equivalence $p_0 = p_\infty$, similarly for the outflow section, we get
+%
+\begin{align}
+p_2 + \rho \frac{1}{2} v^2_i &= p_\infty + \rho \frac{1}{2} v^2_3 \label{eq:bernoulli_outflow}
+\end{align}
+%
+again using $p_3 = p_\infty$.
+
+Using \cref{eq:bernoulli_inflow,eq:bernoulli_outflow} we obtain
+%
+\begin{align}
+\parens{ p_2 - p_1 } &= \parens{p_\infty + \rho \frac{1}{2} v^2_3 - \rho \frac{1}{2} v^2_i} - \parens{ p_\infty + \rho \frac{1}{2} v^2_0 - \rho \frac{1}{2} v^2_i} \\
+                     &= \rho \frac{1}{2} \parens{ v^2_3 - v^2_0 }
+\end{align}
+
+\todo{make it work like below}
+
+If we express $p_2$ in terms of $p_1$ and a pressure difference $\Delta p$, such that
+\begin{align}
+p_2 &= \Delta p + p_1
+\end{align}
+%
+we find that
+%
+\begin{align}
+\Delta p + p_1 + \rho \frac{1}{2} v^2_i &= p_2 + \rho \frac{1}{2} v^2_i \label{eq:bernoulli_induced_deltap}
+\end{align}
+%
+and thus obtain using \cref{eq:bernoulli_outflow,eq:bernoulli_induced_deltap}
+%
+\begin{align}
+\Delta p &= \parens { p_\infty + \rho \frac{1}{2} v^2_3 } - \parens{ p_1 + \rho \frac{1}{2} v^2_i }
+\end{align}
+
+\todo{below there be dragons}
+
 We know that the atmospheric pressure $p_\infty$ is related to the inflow velocity $v_i$ and pressure $p_i$ by
 %
 \begin{align}
-p_\infty = p_i + \frac{1}{2}\rho v_i^2 \label{eq:bernoulli_inflow}
+p_\infty = p_i + \frac{1}{2}\rho v_i^2 \label{eq:bernoulli_inflow_x}
 \end{align}
 %
 From \cref{eq:bernoulli_inflow} and the pressure increase $\Delta p$ across the
 rotor area, we know that 
 %
 \begin{align}
- \parens{p_i + \frac{1}{2}\rho v_i^2 } + \Delta p &= \parens{ p_\infty + \frac{1}{2}\rho v_3^2 } \label{eq:bernoulli_outflow}
+ \parens{p_i + \frac{1}{2}\rho v_i^2 } + \Delta p &= \parens{ p_\infty + \frac{1}{2}\rho v_3^2 } \label{eq:bernoulli_outflow_x}
 \end{align}
 %\todo{http://en.wikipedia.org/wiki/Blade_element_momentum_theory}
 %
@@ -109,6 +154,8 @@ which, by applying \cref{eq:bernoulli_inflow} again, leads to
 \end{align}
 %
 \Cref{eq:deltap_vinfty} shows that the final outflow velocity $v_3$ directly depends on the pressure increase $\Delta p$ induced by the rotor.
+
+\todo{below begone!}
 
 Using actuator disk concept, we assume that the volume swept out by the rotating propeller blades describes an infinitesimally thin disk (the so-called \textit{rotor disk}) with orifice area $A = 2\pi r$%
 % and volume $V_d = A s \sfrac{\diff}{\diff s}$
