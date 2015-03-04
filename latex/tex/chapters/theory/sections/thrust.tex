@@ -120,13 +120,19 @@ p_2 &= \Delta p + p_1
 we find that
 %
 \begin{align}
-\Delta p + p_1 + \rho \frac{1}{2} v^2_i &= p_2 + \rho \frac{1}{2} v^2_i \label{eq:bernoulli_induced_deltap}
+\Delta p + \parens{ p_1 + \rho \frac{1}{2} v^2_i } &= \parens{  p_2 + \rho \frac{1}{2} v^2_i }
 \end{align}
 %
-and thus obtain using \cref{eq:bernoulli_outflow,eq:bernoulli_induced_deltap}
+By identity using \cref{eq:bernoulli_inflow,eq:bernoulli_outflow} we obtain
 %
 \begin{align}
-\Delta p &= \parens { p_\infty + \rho \frac{1}{2} v^2_3 } - \parens{ p_1 + \rho \frac{1}{2} v^2_i }
+\Delta p + \parens{ p_\infty + \rho \frac{1}{2} v^2_0 } &= \parens{ p_\infty + \rho \frac{1}{2} v^2_3 } \label{eq:bernoulli_induced_deltap}
+\end{align}
+%
+and thus
+%
+\begin{align}
+\Delta p &= \rho \frac{1}{2} \parens{ v^2_3 - v^2_0 }
 \end{align}
 
 \todo{below there be dragons}
