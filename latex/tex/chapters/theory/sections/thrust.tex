@@ -129,7 +129,7 @@ $\parens{ p_2 - p_1 } = \parens{p_\infty + \frac{1}{2} \rho v^2_3 - \frac{1}{2} 
 \Delta p &= \frac{1}{2} \rho \parens{ v^2_3 - v^2_0 }
 \end{align}
 %
-As will be shown later\todo[noinline]{reference to solution}, this corresponds to the induced velocity of
+As will be shown in \cref{eq:froude_rankine_proof} \vpageref{eq:froude_rankine_proof}\todo[noinline]{reference to solution}, this corresponds to the induced velocity of
 %
 \begin{align}
 v_i &= \frac{1}{2} \parens{ v_3 - v_0 } \label{eq:froude_rankine_theorem}
@@ -196,6 +196,21 @@ F &= \frac{\diff m}{\diff t} v = \dot{m} v \quad \mathrm{if} \quad v = \mathrm{c
 \end{align}
 %
 which is displayed graphically in \cref{fig:mass_flow_force}.
+
+As can be seen in \cref{fig:actuator_disc}, the total change in air velocity due to the rotor with respect to the upstream and downstream orifice areas is
+%
+\begin{align}
+\Delta v &= v_3 - v_0
+\end{align}
+%
+Consequently and due to the identity given in \cref{eq:massflow_continuity}, the resulting force is
+%
+\begin{align}
+F &= \dot{m} \, \Delta v = \dot{m} \parens{ v_3 - v_0 } 
+\end{align}
+%
+
+\todo{below there be dragons}
 
 Given the relative speed of air in the outflow%
 \footnote{Remember that $v_0$ can be understood as the actuator disk velocity as well as the free stream velocity, depending on the point of view.} 
