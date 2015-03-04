@@ -37,7 +37,7 @@ $\Delta v = v_3 - v_0$ -- due to the increase in pressure $\Delta p$ -- essentia
 
 			\rule{35em}{0.5pt}
 	\caption[Actuator disk concept of momentum theory]
-			{Actuator disk concept of momentum theory: Visualization of the streamtube,
+			{Actuator disk concept of momentum theory: Visualization of the streamtube control volume,
 			the actuator disk and the segments of conserved energy in the ranges of inflow (\ncircled{0}-\ncircled{1}) and outflow (\ncircled{2}-\ncircled{3}) by means of air pressure $p$ and velocity $v$. \\ The distance \ncircled{1}-\ncircled{2} is
 			assumed to be infinitesimally small.}
 	\label{fig:streamtube_concept}
@@ -110,8 +110,9 @@ which, by applying \cref{eq:bernoulli_inflow} again, leads to
 %
 \Cref{eq:deltap_vinfty} shows that the final outstream velocity $v_\infty$ directly depends on the pressure increase $\Delta p$ induced by the rotor.
 
-Using actuator disk concept, we assume that the area swept out by the rotating propeller blades describes an infinitesimally thin disk (the so-called \textit{rotor disk}) with orifice area $A = 2\pi r$, where
-$r$ (in \withunit{\metre}) is the length of the propeller blades.
+Using actuator disk concept, we assume that the volume swept out by the rotating propeller blades describes an infinitesimally thin disk (the so-called \textit{rotor disk}) with orifice area $A = 2\pi r$%
+% and volume $V_d = A s \sfrac{\diff}{\diff s}$
+, where $r$ (in \withunit{\metre}) is the length of the propeller blades (i.e. the radius of the propeller).
 Because of the disk being infinitesimally thin, the air velocity across the disk
 can be assumed to be continuous, 
 i.e. the change in air velocity is $\Delta v = 0$. 
@@ -134,8 +135,14 @@ where $\dot{V} = \sfrac{\diff V}{\diff t}$, as well as the mass flow rate (in \w
 %
 where the notation $\dot{m}$ is used to denote mass over time, i.e. $\sfrac{\diff m}{\diff t}$. % Here, $\rho \cdot v$ is the momentum density.
 
-Since the momentum and energy induced by the rotor must be conserved,
-the eventual outflow pressure $p_\infty$ and velocity $v_\infty$ can be used
+Since mass enters and leaves the control volume only through upstream and downstream orifice areas $A_u = 2 \pi r_u$ and $A_d = 2 \pi r_d$ (compare \cref{fig:streamtube_concept}), continuity equation gives that 
+%
+\begin{align}
+\dot{m} = \rho A_u v_0 = \rho A v_i = \rho A_d v_3 \label{eq:massflow_continuity}
+\end{align}
+
+Further, momentum and energy induced by the rotor must be conserved. 
+Since $\dot{m}$ does not change, the eventual outflow pressure $p_\infty$ and velocity $v_3$ are a function of the rotor energy and can thus be used
 to describe the force acting on the outflow through the rotor.
 
 \begin{figure}
