@@ -11,12 +11,7 @@
 	% force arrow
 	\draw [->,line width=1,magenta] 
 		(center) -- 
-		++ (1,0) node [right] {$\vec{F} = \dotvec{m} \left(\vec{v} - \vec{v}_d \right)$};
-
-	% disk velocity arrow
-	\draw [->,red]
-		(0,-0.5) -- 
-		(0.5,-0.5) node [right] {$\vec{v}_d$};
+		++ (1,0) node [right] {$\vec{F} = \dotvec{m} \vec{v}$};
 
 	% disk radius
 	\draw [|<->|]
