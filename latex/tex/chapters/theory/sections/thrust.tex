@@ -226,7 +226,7 @@ By equating \cref{eq:rotor_force_deltav,eq:rotor_force_deltap} and using the ide
 Using this in \cref{eq:pressure_difference_v3} we obtain
 %
 \begin{align}
-\rho v_i \parens{ v_3 - v_0 } &= \frac{1}{2} \rho \parens{ v^2_3 - v^2_0 } \label{eq:froude_rankine_proof} \\
+\Delta p = \rho v_i \parens{ v_3 - v_0 } &= \frac{1}{2} \rho \parens{ v^2_3 - v^2_0 } \label{eq:froude_rankine_proof} \\
 2 v_i &= \parens{ v_3 - v_0 } \label{eq:two_vi_is_deltav}
 \end{align}
 %
@@ -239,7 +239,7 @@ F &= 2 \dot{m} v_i = 2 \rho A_r v^2_i \label{eq:thrust_mdot} \\
 v_i &= \sqrt{\frac{F}{2 \rho A_r}}
 \end{align}
 
-Since we have the thrust $F_T$ defined to be the reaction force to the action of moving mass, it consequently is given using \cref{eq:thrust_mdot} as
+Since we have the thrust $F_T$ defined to be the reaction force to the action of moving mass, it consequently is given using \cref{eq:thrust_mdot} as\todo[noinline]{it's easier just to $(v_0 - v_3)$ instead}
 %
 \begin{align}
 \vec{T} &= -\vec{F} \label{eq:thrust}
@@ -312,7 +312,7 @@ We will come back to this later, as this has an interesting impact on actuator d
 In comparison to \cref{eq:thrust_mdot} \vpageref{eq:thrust_mdot}, an optimized equation for the \textit{dynamic thrust}\index{thrust!dynamic} is given as
 %
 \begin{align}
-T_d = c_T \frac{1}{2} \rho v_b^2 A_b
+T_d = c_T \frac{1}{2} \rho A_b v_b^2
 \end{align}
 %
 where $v_b$ is the lateral blade velocity (e.g. tip velocity) and $A_b$ the blade area \cite[chapter~1.6.3]{physing}.
