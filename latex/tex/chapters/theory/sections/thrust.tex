@@ -102,8 +102,7 @@ p_2 + \frac{1}{2} \rho v^2_i &= p_\infty + \frac{1}{2} \rho v^2_3 \label{eq:bern
 \end{align}
 %
 again using $p_3 = p_\infty$.
-
-If we express $p_2$ in terms of $p_1$ and a pressure difference $\Delta p$ created by the rotor, such that
+If we now express $p_2$ in terms of $p_1$ and a pressure difference $\Delta p$ created by the rotor, such that
 \begin{align}
 \Delta p + p_1 &= p_2
 \end{align}
@@ -140,22 +139,22 @@ which is called the \name{Froude}-\name{Rankine} theorem\todo[noinline]{source}.
 Using the actuator disk concept, we assume that the volume swept out by the rotating propeller blades describes an infinitesimally thin disk (the so-called \textit{rotor disk}) with orifice area $A = 2\pi r$%
 % and volume $V_d = A s \sfrac{\diff}{\diff s}$
 , where $r$ (in \withunit{\metre}) is the length of the propeller blades (i.e. the radius of the propeller).
-Because of the disk being infinitesimally thin, the air velocity across the disk can be assumed to be continuous, i.e. the change in air velocity is $\Delta v = 0$. 
+Because of the disk being infinitesimally thin, the air velocity across the disk can be assumed to be continuous, i.e. the change in air velocity across the disk is zero. 
 
-Given the orifice area $A$, we can then define the volumetric flow rate % Volumenstrom
+Given the orifice area $A_r$ (the cross-section of the rotor disk), we can then define the volumetric flow rate % Volumenstrom
 (or flow volume, given in \withunit{\cubic\metre\per\second})%
 \footnote{When
 thinking about the garden hose, the flow volume might be easier to understand when expressed in terms of \withunitx{1000}{\litre\per\second} rather than \withunitx{1}{\cubic\metre\per\second}, which technically is the same.}
 as the flow of air mass through the disk by
 %
 \begin{align}
-Q = \dot{V} = A v_i \label{eq:flowvolume}
+Q = \dot{V} = A_r v_i \label{eq:flowvolume}
 \end{align}
 %
 where $\dot{V} = \sfrac{\diff V}{\diff t}$, as well as the mass flow rate (in \withunit{\kilo\gram\per\second}) as
 %
 \begin{align}
-\dot{m} = \rho Q = \rho A v_i \label{eq:massflow}
+\dot{m} = \rho Q = \rho A_r v_i \label{eq:massflow}
 \end{align}
 %
 where the notation $\dot{m}$ is used to denote mass over time, i.e. $\sfrac{\diff m}{\diff t}$. % Here, $\rho \cdot v$ is the momentum density.
@@ -165,8 +164,6 @@ Since mass enters and leaves the control volume only through upstream and downst
 \begin{align}
 \dot{m} = \rho A_u v_0 = \rho A_r v_i = \rho A_d v_3 \label{eq:massflow_continuity}
 \end{align}
-%
-where $A_r = 2 \pi r_r$ is the orifice area of the actuator disk.
 
 Further, momentum and energy induced by the rotor must be conserved. 
 Since $\dot{m}$ does not change, the velocity $v_3$ is a function of the energy induced by the rotor and can thus be used to describe the force acting on the outflow through the rotor.
@@ -217,15 +214,14 @@ F &= A_r \, \Delta p \\
   &= A_r \parens{ p_2 - p_1 } \label{eq:rotor_force_deltap}
 \end{align}
 %
-where $A_r = 2 \pi r_r$ is the surface area of the actuator disk.
-By equating \cref{eq:rotor_force_deltav,eq:rotor_force_deltap} and using the identities in \cref{eq:massflow_continuity} we find
+By equating \cref{eq:rotor_force_deltav,eq:rotor_force_deltap} and using the identities from \cref{eq:massflow_continuity} we find
 %
 \begin{align}
  \Delta p &= \frac{\dot{m}}{A_r} \parens{ v_3 - v_0 } \\
                       &= \rho v_i \parens{ v_3 - v_0 }
 \end{align}
 %
-Using this in \cref{eq:pressure_difference_v3} we obtain
+With \cref{eq:pressure_difference_v3} we then obtain
 %
 \begin{align}
 \rho v_i \parens{ v_3 - v_0 } &= \frac{1}{2} \rho \parens{ v^2_3 - v^2_0 } \label{eq:froude_rankine_proof} \\
