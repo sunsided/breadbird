@@ -132,7 +132,7 @@ $\parens{ p_2 - p_1 } = \parens{p_\infty + \frac{1}{2} \rho v^2_3 - \frac{1}{2} 
 As will be shown in \cref{eq:froude_rankine_proof} \vpageref{eq:froude_rankine_proof}, this corresponds to the induced velocity of
 %
 \begin{align}
-v_i &= \frac{1}{2} \parens{ v_3 - v_0 } \label{eq:froude_rankine_theorem}
+v_i &= \frac{1}{2} \parens{ v_3 + v_0 } \label{eq:froude_rankine_theorem}
 \end{align}
 %
 which is called the \name{Froude}-\name{Rankine} theorem\todo[noinline]{source}.
@@ -226,8 +226,9 @@ By equating \cref{eq:rotor_force_deltav,eq:rotor_force_deltap} and using the ide
 Using this in \cref{eq:pressure_difference_v3} we obtain
 %
 \begin{align}
-\Delta p = \rho v_i \parens{ v_3 - v_0 } &= \frac{1}{2} \rho \parens{ v^2_3 - v^2_0 } \label{eq:froude_rankine_proof} \\
-2 v_i &= \parens{ v_3 - v_0 } \label{eq:two_vi_is_deltav}
+\rho v_i \parens{ v_3 - v_0 } &= \frac{1}{2} \rho \parens{ v^2_3 - v^2_0 } \label{eq:froude_rankine_proof} \\
+         &= \frac{1}{2} \rho \parens{ v_3 + v_0 } \parens{ v_3 - v_0 } \notag \\
+2 v_i &= \parens{ v_3 + v_0 } \label{eq:two_vi_is_deltav}
 \end{align}
 %
 which proves the \name{Froude}-\name{Rankine} theorem given in \cref{eq:froude_rankine_theorem} \vpageref{eq:froude_rankine_theorem}.
