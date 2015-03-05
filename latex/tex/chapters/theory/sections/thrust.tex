@@ -206,13 +206,15 @@ As can be seen in \cref{fig:actuator_disc}, the total change in air velocity due
 Consequently and due to the identity given in \cref{eq:massflow_continuity}, the resulting force is
 %
 \begin{align}
-F &= \dot{m} \, \Delta v = \dot{m} \parens{ v_3 - v_0 } \label{eq:rotor_force_deltav}
+F &= \dot{m} \, \Delta v \\ 
+  &= \dot{m} \parens{ v_3 - v_0 } \label{eq:rotor_force_deltav}
 \end{align}
 %
 As was already shown in \cref{eq:pressure_difference_v3}, the pressure difference $\Delta p$ accounts for this velocity change $\Delta v$, so that\todo[noinline]{which law is that?}
 %
 \begin{align}
-F &= A_r \, \Delta p = A_r \parens{ p_2 - p_1 } \label{eq:rotor_force_deltap}
+F &= A_r \, \Delta p \\
+  &= A_r \parens{ p_2 - p_1 } \label{eq:rotor_force_deltap}
 \end{align}
 %
 where $A_r = 2 \pi r_r$ is the surface area of the actuator disk.
