@@ -43,6 +43,9 @@
 \PassOptionsToClass{a4paper}{\baseclass}
 \ProcessOptions\relax
 \LoadClass{\baseclass}
+
+\usepackage{microtype}
+
 \newcommand\bhrule{\typeout{------------------------------------------------------------------------------}}
 
 \newcommand\btypeout[1]{\bhrule\typeout{\space #1}\bhrule}
