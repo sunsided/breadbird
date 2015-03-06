@@ -81,8 +81,8 @@
 \clubpenalty=9999                 % Almost no orphans at top of page.
 \interfootnotelinepenalty=9999    % Almost never break footnotes.
 \usepackage{fancyhdr}
-\lhead[\rm\thepage]{\fancyplain{}{\sl{\rightmark}}}
-\rhead[\fancyplain{}{\sl{\leftmark}}]{\rm\thepage}
+\lhead[\rm\thepage]{\fancyplain{}{\textit{\rightmark}}}
+\rhead[\fancyplain{}{\textit{\leftmark}}]{\rm\thepage}
 \chead{}\lfoot{}\rfoot{}\cfoot{}
 \pagestyle{fancy}
 \renewcommand{\chaptermark}[1]{\btypeout{\thechapter\space #1}\markboth{\@chapapp\ \thechapter\ #1}{\@chapapp\ \thechapter\ #1}}
@@ -193,7 +193,7 @@
       \setlength{\parskip}{0pt}
       {\large\textbf{\UNIVNAME}\par}
       \vfill
-      {\huge \bf \@title \par}
+      {\huge \textbf \@title \par}
       \vfill
       {\LARGE by \par}
       \smallskip
@@ -238,7 +238,7 @@
     \setlength{\parskip}{0pt}
     {\huge{\textit{Abstract}} \par}
     \bigskip
-    {\normalsize\bf \@title \par} % Thesis title
+    {\normalsize\textbf \@title \par} % Thesis title
     \medskip
     {\normalsize by \authornames \par} % Author name
     \bigskip
@@ -356,7 +356,7 @@
 \thispagestyle{plain}
 \null\vfil
 \vskip 60\p@
-\begin{center}{\Large \sl #1}\end{center}
+\begin{center}{\Large \textit #1}\end{center}
 \vfil\null
 \cleardoublepage
 }
