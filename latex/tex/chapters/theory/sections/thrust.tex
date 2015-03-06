@@ -226,11 +226,9 @@ which is called the \name{Froude}-\name{Rankine} theorem\todo[noinline]{source}.
 Using \cref{eq:froude_rankine_theorem} in \cref{eq:rotor_force_deltav} we can now relate the force acting on the air to the induced velocity $v_i$, such that
 %
 \begin{align}
-F &= \rho A_r v_i \parens{v_3 - v_1} \\
-  &= \frac{1}{2} \rho A_r \parens{v_3 + v_1} \parens{v_3 - v_1} \notag \\
-  &= \frac{1}{2} \rho A_r \parens{v^2_3 - v^2_1} \label{eq:thrust_mdot}
-%F &= 2 \dot{m} v_i = 2 \rho A_r v^2_i \label{eq:thrust_mdot} \\
-%v_i &= \sqrt{\frac{F}{2 \rho A_r}}
+F &= \rho A_r v_i \parens{v_3 - v_0} \\
+  &= \frac{1}{2} \rho A_r \parens{v_3 + v_0} \parens{v_3 - v_0} \notag \\
+  &= \frac{1}{2} \rho A_r \parens{v^2_3 - v^2_0} \label{eq:thrust_mdot}
 \end{align}
 
 Since we have the thrust $T$ defined to be the reaction force to the action of moving mass, it consequently is given using \cref{eq:thrust_mdot} as\todo[noinline]{it's easier just to $(v_0 - v_3)$ instead}
@@ -275,7 +273,7 @@ it can be seen that there are different ways to obtain the same amount of (stati
 	\item a large orifice area $A$ with a small outflow velocity $\vec{v}_{3}$.
 \end{itemize}
 
-More specifically, whenever the area $A$ doubles, the velocity $\vec{v}_{3}$ may halve.
+More specifically, whenever the area $A$ quadruples, the velocity $\vec{v}_{3}$ may halve.
 However, when relating the thrust with the energy required to obtain it, the tradeoff between the two options is clear. 
 Generally, the equation for the kinetic energy\index{energy!kinetic} is given as
 %
