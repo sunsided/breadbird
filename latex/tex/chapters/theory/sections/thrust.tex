@@ -233,8 +233,6 @@ F &= \rho A_r v_i \parens{v_3 - v_1} \\
 %v_i &= \sqrt{\frac{F}{2 \rho A_r}}
 \end{align}
 
-\todo[size=\Large,color=red]{where did $v_i = \sqrt{\sfrac{T}{2\rho A_r}}$ come from!?}
-
 Since we have the thrust $T$ defined to be the reaction force to the action of moving mass, it consequently is given using \cref{eq:thrust_mdot} as\todo[noinline]{it's easier just to $(v_0 - v_3)$ instead}
 %
 \begin{align}
@@ -259,6 +257,15 @@ This is the maximum theoretically possible thrust the propeller can create while
 Viewed differently, it is equal to the force required to keep such a system static when it operates on full power.
 
 \todo{now if the system is moving faster than its jet velocity $v_{out}$, does that mean the thrust is negative and thus makes the system slower?}
+
+Furthermore, the induced velocity of the static case can be trivially calculated from \cref{eq:static_thrust_Av} using $v_i = \sfrac{v_3}{2}$ (compare \cref{eq:froude_rankine_theorem})as
+%
+\begin{align}
+F_{0} &= \frac{1}{2} \rho A_r (2 v_i)^2 
+       = 2 \rho A_r v_i^2 \quad \Leftrightarrow \quad
+v_{i_0}   = \sqrt{\frac{F}{2 \rho A_r}}
+\end{align}
+%
 
 As \cref{eq:thrust_mdot,eq:static_thrust_Av} are directly dependent on the volumetric flow rate given in \cref{eq:flowvolume} and the outflow velocity $\vec{v}_3$, 
 it can be seen that there are different ways to obtain the same amount of (static) thrust: The system may either have
