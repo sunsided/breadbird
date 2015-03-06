@@ -27,7 +27,7 @@ force = 1; % [N]
 
 % simulation
 r_series = 0.01:0.001:0.1; % radius [m]
-A_series = 2*pi*r_series.^2;
+A_series = pi*r_series.^2;
 v3_series_1 = v3N(0.5*force, A_series);    % outflow velocity [m/s]
 v3_series_2 = v3N(force, A_series);    % outflow velocity [m/s]
 v3_series_3 = v3N(2*force, A_series);    % outflow velocity [m/s]

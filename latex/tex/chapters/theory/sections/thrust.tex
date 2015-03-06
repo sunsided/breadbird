@@ -128,7 +128,7 @@ $\parens{ p_2 - p_1 } = \parens{p_\infty + \frac{1}{2} \rho v^2_3 - \frac{1}{2} 
 \Delta p &= \frac{1}{2} \rho \parens{ v^2_3 - v^2_0 } \label{eq:pressure_difference_v3}
 \end{align}
 
-Using the actuator disk concept, we assume that the volume swept out by the rotating propeller blades describes an infinitesimally thin disk (the so-called \textit{rotor disk}) with orifice area $A = 2\pi r$%
+Using the actuator disk concept, we assume that the volume swept out by the rotating propeller blades describes an infinitesimally thin disk (the so-called \textit{rotor disk}) with orifice area $A = \pi r^2$%
 % and volume $V_d = A s \sfrac{\diff}{\diff s}$
 , where $r$ (in \withunit{\metre}) is the length of the propeller blades (i.e. the radius of the propeller).
 Because of the disk being infinitesimally thin, the air velocity across the disk can be assumed to be continuous, i.e. the change in air velocity across the disk is zero. 
@@ -151,7 +151,7 @@ where $\dot{V} = \sfrac{\diff V}{\diff t}$, as well as the mass flow rate (in \w
 %
 where the notation $\dot{m}$ is used to denote mass over time, i.e. $\sfrac{\diff m}{\diff t}$. % Here, $\rho \cdot v$ is the momentum density.
 
-Since mass enters and leaves the control volume only through upstream and downstream orifice areas $A_u = 2 \pi r_u$ and $A_d = 2 \pi r_d$ (compare \cref{fig:streamtube_concept}), continuity equation gives that 
+Since mass enters and leaves the control volume only through upstream and downstream orifice areas $A_u = \pi r^2_u$ and $A_d = \pi r^2_d$ (compare \cref{fig:streamtube_concept}), continuity equation gives that 
 %
 \begin{align}
 \dot{m} = \rho A_u v_0 = \rho A_r v_i = \rho A_d v_3 \label{eq:massflow_continuity}
