@@ -297,6 +297,7 @@ E_2 &= \frac{1}{2} \times \SI{10}{\kilo\gram} \times \parens{ \SI{1}{\meter\per\
 \end{align*}
 %
 Since by energy conservation the energy added to the air must be taken from the rotor, it is much more efficient to use a larger propeller running at a lower speed (i.e. producing a lower induced velocity, yet creating a larger mass flow) than running a smaller propeller at a higher speed \cite{book:mechflight2006}.
+\Cref{fig:v3_A_energy} shows variations of outflow velocity $v_3$ and orifice area $A_r$ (in the range of $r_r = \SI{1}{\centi\metre} \dots \SI{10}{\centi\metre}$) for different thrust amounts and the resulting effect on the energy required.
 
 \todo{note that larger propellers also mean larger rotational inertia and thus slower control response}
 
@@ -305,7 +306,8 @@ Since by energy conservation the energy added to the air must be taken from the 
 	\input{pictures/mt_energy/mt_energy_3combined_linear.tikz}
 	
 	\rule{35em}{0.5pt}
-	\caption{Relation of orifice area $A_r$ and outflow velocity $v_3$ to energy $E_{kin}$ required given a fixed amount of thrust $F$.}
+	\caption[Outflow velocity and orifice area effects on energy consumption]{Relation of orifice area $A_r$ and outflow velocity $v_3$ to energy $E_{kin}$ required given a fixed amount of thrust $F$.}
+	\label{fig:v3_A_energy}
 \end{figure}
 
 We will come back to this later, as this has an interesting impact on actuator design decisions, specifically in the choice of motor and propeller pairs.
