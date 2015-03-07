@@ -270,34 +270,37 @@ v_h &\equiv v_{i_0} = \sqrt{\frac{F}{2 \rho A_r}}
 
 \todo{add fig. 3.17 from \cite{book:priha2006}}
 
-In axial climb, the overall velocity increases by an amount of $v_c$ (the climb velocity), that is
+In axial climb, by relativity of motion, the atmospheric velocity is equal to the amount of the climb velocity $\left|\vec{v}_c \right|$, that is
 %
 \begin{align}
-v_{0_c} = v_0 + v_c \qquad
-v_{i_c} = v_i + v_c \qquad
-v_{3_c} = v_3 + v_c
+v_c = v_0
 \end{align}
 %
 Following from that, the thrust force $F_c$ is given as
 %
 \begin{align}
-F_c &= \dot{m} \parens{ v_{3_c} - v_{0_c} } = \dot{m} \parens{ \parens{v_3 + v_c} - \parens{v_0 + v_c} } \\
-    &= \dot{m} \parens{ v_3 - v_0 }
+F_c &= \dot{m} \parens{ v_3 - v_c }
 \end{align}
 %
-which is the same result as we obtained for the static case in \cref{eq:rotor_force_deltav} \vpageref{eq:rotor_force_deltav}.
-Also, the induced velocity is now given as
+which is analog to \cref{eq:rotor_force_deltav} \vpageref{eq:rotor_force_deltav}, with an induced velocity of
 %
 \begin{align}
-v_{i_c} &= \frac{1}{2} \parens{ v_{3_c} + v_{0_c} }
-         = \frac{1}{2} \parens{ v_3 + v_0 + 2 v_c }
+v_{i_c} &= \frac{1}{2} \parens{ v_3 + v_c }
 \end{align}
-%
+
 Given the work-energy principle we know that the work done by the rotor must equal the energy change in the air, that is
 %
 \begin{align}
-W_{c} &= E(v_{3_c}) - E(v_{0_c}) \\
-      &= \frac{1}{2} \dot{m} \parens{v_3 + v_c}^2 - \frac{1}{2} \dot{m} \parens{v_0 + v_c}^2
+W_{c} &= E(v_c + \Delta v) - E(v_c) \\
+      &= \frac{1}{2} \dot{m} \parens{v_c + \Delta v}^2 - \frac{1}{2} \dot{m} \parens{v_c}^2 \\
+	  &= \frac{1}{2} \dot{m} \Delta v \parens{2 v_c + \Delta v}
+\end{align}	  
+with alternative solutions being
+\begin{align}
+W_{c} &= \frac{1}{4} \dot{m} \parens{v^2_3 - v^2_c} \\
+ 	  &= \frac{1}{4} \rho A_r \parens{v_3 + v_c} \parens{v^2_3 - v^2_c} \\
+ 	  &= \frac{1}{4} \rho A_r \parens{v_3 - v_c} \parens{v_3 + v_c}^2 \\
+	  &= \frac{1}{2} \rho A_r \Delta v \, v_i^2
 \end{align}
 %
 
