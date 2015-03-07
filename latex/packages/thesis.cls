@@ -44,7 +44,10 @@
 \ProcessOptions\relax
 \LoadClass{\baseclass}
 
-\usepackage{microtype}
+\usepackage{ifdraft}
+\ifdraft{}{
+  \usepackage{microtype}
+}
 
 \newcommand\bhrule{\typeout{------------------------------------------------------------------------------}}
 
