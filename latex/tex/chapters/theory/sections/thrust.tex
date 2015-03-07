@@ -239,10 +239,6 @@ Since we have the thrust $T$ defined to be the reaction force to the action of m
 %
 and points towards the inflow. 
 This is the theoretical \textit{dynamic thrust}\index{thrust!dynamic} produced by the rotor. 
-The major flaw with this equation is that it assumes the induced velocity $v_i$ to be constant across the actuator disk and that no air mass leaves the control volume.
-In reality, this will not hold, as the induced velocity varies due to the shape of the propeller blades, most notably so at the blade tips\todo[noinline]{source}.
-
-\todo{add hint towards BET or BEMT}
 
 In case of a free stream velocity of $v_0 = 0$, by applying the \name{Froude}-\name{Rankine} theorem, \cref{eq:thrust_mdot} simplifies to the \textit{static thrust}\index{thrust!static} of
 %
@@ -263,7 +259,21 @@ F_{0} &= \frac{1}{2} \rho A_r (2 v_i)^2
        = 2 \rho A_r v_i^2 \quad \Leftrightarrow \quad
 v_{i_0}   = \sqrt{\frac{F}{2 \rho A_r}}
 \end{align}
-%
+
+The major flaw with these equations is that they assume the induced velocity $v_i$ to be constant across the actuator disk and that no air mass leaves the control volume, as otherwise the assumption of momentum conservation would not hold.
+In reality, this will not be generally true, as, for example, the induced velocity varies due to the shape of the propeller blades, most notably so at the blade tips and, of course, the hub\todo[noinline]{source}.
+In order to model these effects, the thrust coefficient $c_T$ will be introduced later.
+
+\todo{where is it introduced?}
+
+\todo{add hint towards BET or BEMT}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% RELATION OF ROTOR SIZE TO OUTFLOW VELOCITY
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Relation between propeller size and outflow velocity}
+\label{subsec:area_vs_velocity}
 
 As \cref{eq:thrust_mdot,eq:static_thrust_Av} are directly dependent on the volumetric flow rate given in \cref{eq:flowvolume} and the outflow velocity $\vec{v}_3$, 
 it can be seen that there are different ways to obtain the same amount of (static) thrust: The system may either have
@@ -275,7 +285,8 @@ it can be seen that there are different ways to obtain the same amount of (stati
 
 More specifically, whenever the area $A$ quadruples, the velocity $\vec{v}_{3}$ may halve.
 However, when relating the thrust with the energy required to obtain it, the tradeoff between the two options is clear. 
-Generally, the equation for the kinetic energy\index{energy!kinetic} is given as
+
+Generally, the equation for the kinetic energy\index{energy!kinetic} of a mass $m$ moving with velocity $v$ is given as
 %
 \begin{align}
 E &= \frac{1}{2} m v^2
@@ -313,6 +324,15 @@ Since by energy conservation the energy added to the air must be taken from the 
 We will come back to this later, as this has an interesting impact on actuator design decisions, specifically in the choice of motor and propeller pairs.
 
 \todo{come back to this later and explain the rotor and motor combinations}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% MAXIMUM PROPELLER EFFICIENCY / BETZ LIMIT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Maximum propeller efficiency}
+
+Enhancing on \name{Froude}'s and \name{Rankine}'s momentum theory, the maximum efficiency of a propeller is given as the \name{Lanchester}-\name{Betz}-\name{Joukowsky}\footnote{Although french spelling \name{Joukowsky} is used here, note that the transcription \name{Zhukovski} from the russian spelling is also commonly used \cite{WE:WE218}.} limit (discovered independently between 1915 and 1920, but generally attributed to \name{Betz} as the \name{Betz} limit \cite{WE:WE218}).
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
