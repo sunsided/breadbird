@@ -1,0 +1,22 @@
+\begin{tikzpicture}
+
+	\begin{axis}[
+		width=\linewidth,
+        scale only axis,
+		legend entries={$F = 0.5N$,
+	                $F = 1N$,
+	                $F = 2N$,
+	                $F = 4N$},
+		legend pos=north west,
+		xmode=log,
+		ymode=log,
+		xlabel=$v_3 \text{ in } m/s$,
+		ylabel=$E_{kin} \text{ in } J$]
+		
+		\addplot table [x=v3, y=E, col sep=comma] {data/mt_energy/0.5N.csv};
+		\addplot table [x=v3, y=E, col sep=comma] {data/mt_energy/1N.csv};
+		\addplot table [x=v3, y=E, col sep=comma] {data/mt_energy/2N.csv};
+		\addplot table [x=v3, y=E, col sep=comma] {data/mt_energy/4N.csv};
+	\end{axis}
+
+\end{tikzpicture}

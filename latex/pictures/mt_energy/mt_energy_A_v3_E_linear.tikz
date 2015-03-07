@@ -1,0 +1,25 @@
+\begin{tikzpicture}
+
+	\begin{axis}[
+		width=\linewidth,
+		trim axis left, trim axis right,
+        scale only axis,
+		legend entries={$F = 0.5N$,
+	                $F = 1N$,
+	                $F = 2N$,
+	                $F = 4N$},
+		legend pos=north east,
+		xmode=linear,
+		ymode=linear,
+		zmode=linear,
+		xlabel=$A_r \text{ in } m^2$,
+		ylabel=$v_3 \text{ in } m/s$,
+		zlabel=$E_{kin} \text{ in } J$]
+		
+		\addplot3 table [x=A, y=v3, z=E, col sep=comma] {data/mt_energy/0.5N.csv};
+		\addplot3 table [x=A, y=v3, z=E, col sep=comma] {data/mt_energy/1N.csv};
+		\addplot3 table [x=A, y=v3, z=E, col sep=comma] {data/mt_energy/2N.csv};
+		\addplot3 table [x=A, y=v3, z=E, col sep=comma] {data/mt_energy/4N.csv};
+	\end{axis}
+
+\end{tikzpicture}
