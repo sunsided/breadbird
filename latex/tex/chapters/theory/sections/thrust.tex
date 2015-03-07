@@ -252,12 +252,12 @@ Viewed differently, it is equal to the force required to keep such a system stat
 
 \todo{now if the system is moving faster than its jet velocity $v_{out}$, does that mean the thrust is negative and thus makes the system slower?}
 
-Furthermore, the induced velocity of the static case can be trivially calculated from \cref{eq:static_thrust_Av} using $v_i = \sfrac{v_3}{2}$ (compare \cref{eq:froude_rankine_theorem})as
+Furthermore, the induced velocity of the static case -- the \textit{hover velocity}\index{velocity!hover} $v_h$ -- can be trivially calculated from \cref{eq:static_thrust_Av} using $v_i = \sfrac{v_3}{2}$ (compare \cref{eq:froude_rankine_theorem})as
 %
 \begin{align}
-F_{0} &= \frac{1}{2} \rho A_r (2 v_i)^2 
-       = 2 \rho A_r v_i^2 \quad \Leftrightarrow \quad
-v_{i_0}   = \sqrt{\frac{F}{2 \rho A_r}}
+F_{0} &= \frac{1}{2} \rho A_r (2 v_i)^2 \notag
+       = 2 \rho A_r v_i^2 \\
+v_h &\equiv v_{i_0} = \sqrt{\frac{F}{2 \rho A_r}}
 \end{align}
 
 The major flaw with these equations is that they assume the induced velocity $v_i$ to be constant across the actuator disk and that no air mass leaves the control volume, as otherwise the assumption of momentum conservation would not hold.
