@@ -27,4 +27,6 @@
 *.brf
 *.synctex.gz(busy)
 *.tks
-*
+
+!tex/**/*.tex
+!pictures/**/.tikz
