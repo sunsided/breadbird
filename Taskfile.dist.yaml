@@ -1,0 +1,43 @@
+version: '3'
+
+vars:
+  TYPST_DIR: typst
+
+tasks:
+  default:
+    cmds:
+      - task --list --sort=none
+    silent: true
+
+  build:
+    desc: Compile the report to typst/main.pdf
+    dir: '{{.TYPST_DIR}}'
+    preconditions: &typst
+      - sh: command -v typst
+        msg: "typst not found — install from https://github.com/typst/typst#installation (e.g. cargo install --locked typst-cli)"
+    sources: ['**/*.typ', '**/*.csv', '*.bib']
+    generates: [main.pdf]
+    cmds:
+      - typst compile main.typ {{.CLI_ARGS}}
+
+  build:figures:
+    desc: Render every figure (including unused ones) to typst/figures/gallery.pdf
+    dir: '{{.TYPST_DIR}}'
+    preconditions: *typst
+    sources: ['figures/**/*.typ', 'data/**/*.csv']
+    generates: [figures/gallery.pdf]
+    cmds:
+      - typst compile --root . figures/gallery.typ
+
+  dev:
+    desc: Recompile typst/main.pdf on every change
+    dir: '{{.TYPST_DIR}}'
+    preconditions: *typst
+    cmds:
+      - typst watch main.typ {{.CLI_ARGS}}
+
+  clean:
+    desc: Remove generated PDFs
+    dir: '{{.TYPST_DIR}}'
+    cmds:
+      - rm -f main.pdf figures/gallery.pdf

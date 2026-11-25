@@ -2,6 +2,9 @@
 
 Typst port of the LaTeX sources in [`../latex/`](../latex/).
 
+With [Task](https://taskfile.dev) from the repository root: `task build`, `task dev` (watch),
+`task build:figures`, `task clean`. Or directly from this directory:
+
 ```sh
 typst compile main.typ                         # -> main.pdf
 typst compile --root . figures/gallery.typ     # all 14 figures, including unused ones
