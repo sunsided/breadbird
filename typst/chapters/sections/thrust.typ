@@ -438,10 +438,8 @@ $ P = M dot omega_R $ <eq:shaft_power>
 Since the blades are airfoils, their lift and drag grow with the square of the airflow velocity, and with it the square of the rotational speed.
 This is expressed by the dimensionless _thrust coefficient_#index("thrust!coefficient") $C_T$ and _power coefficient_#index("power coefficient") $C_P$, which in the convention commonly used for propellers are defined by @standschub
 
-$
-  T &= C_T dot rho n^2 D^4 #<eq:thrust_coefficient> \
-  P &= C_P dot rho n^3 D^5 #<eq:power_coefficient>
-$
+$ T = C_T dot rho n^2 D^4 $ <eq:thrust_coefficient>
+$ P = C_P dot rho n^3 D^5 $ <eq:power_coefficient>
 
 with the propeller diameter $D = 2 r$ in #unit("m").
 Other conventions use the tip velocity $U$ and a reference area instead, like the dynamic thrust equation above; for the same reference area, they differ only by constant factors @standschub.
@@ -495,7 +493,7 @@ To hover, the static thrust of a quadrotor's four rotors must equal its weight; 
 
 With @eq:shaft_power and @eq:power_coefficient, the propeller loads the motor with a torque of
 
-$ M = P / omega_R = C_P / (2 pi) dot rho n^2 D^5 $
+$ M = P / omega_R = C_P / (2 pi) dot rho n^2 D^5 $ <eq:rotor_torque>
 
 which grows with the square of the speed; the motor settles at the speed where its own torque equals this load.
 For a brushless DC motor, the speed constant $K_v$ (in #unit("min^-1") per volt) states the no-load speed per volt of supply voltage, and its torque constant, the torque per ampere of current, is inversely proportional to $K_v$.

@@ -47,6 +47,9 @@
   }
 
   show: equate.with(breakable: true, number-mode: "line")
+  // Caveat: equate numbers a per-line label (`#<label>` inside an equation)
+  // with the heading counter at the *reference*, so line labels must only be
+  // referenced from the same section; label whole equations for anything else.
   set math.equation(numbering: (..n) => {
     let h = counter(heading).get()
     numbering("(1.1.1)", h.at(0, default: 0), h.at(1, default: 0), ..n.pos())
@@ -58,7 +61,9 @@
   // cleveref-like reference text.
   show ref: it => {
     let el = it.element
-    if el != none and el.func() == heading and el.level == 2 {
+    if el != none and el.func() == heading and el.level == 1 {
+      link(el.location(), [Chapter #numbering("1", counter(heading).at(el.location()).first())])
+    } else if el != none and el.func() == heading and el.level == 2 {
       link(el.location(), [Section #numbering(el.numbering, ..counter(heading).at(el.location()))])
     } else if el != none and el.func() == heading and el.level > 2 {
       link(el.location(), [Subsection #numbering(el.numbering, ..counter(heading).at(el.location()))])
