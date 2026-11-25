@@ -7,7 +7,7 @@ With [Task](https://taskfile.dev) from the repository root: `task build`, `task 
 
 ```sh
 typst compile main.typ                         # -> main.pdf
-typst compile --root . figures/gallery.typ     # all 15 figures, including unused ones
+typst compile --root . figures/gallery.typ     # all 16 figures, including unused ones
 ```
 
 Packages (`cetz`, `cetz-plot`, `unify`, `in-dexter`, `equate`) are fetched from

@@ -35,3 +35,5 @@
 #fig("schematics/virtual_rotation_ab", virtual-rotation-ab())
 #import "climb_streamtube.typ": climb-streamtube
 #fig("climb_streamtube", climb-streamtube())
+#import "sensing_estimator.typ": sensing-estimator
+#fig("sensing_estimator", sensing-estimator())

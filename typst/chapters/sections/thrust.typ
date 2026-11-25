@@ -4,6 +4,7 @@
 #import "../../figures/propeller_thrust.typ": propeller-thrust
 #import "../../figures/mass_flow_force.typ": mass-flow-force
 #import "../../figures/climb_streamtube.typ": climb-streamtube
+#import "../../figures/sensing_estimator.typ": sensing-estimator
 #import "../../figures/mt_energy/mt_energy_3combined_linear.typ": mt-energy-3combined
 
 /// \vpageref: "on this page", "on the next page", or "on page N".
@@ -299,13 +300,13 @@ $ u = -v_c / 2 + sqrt((v_c / 2)^2 + v_h^2) $ <eq:climb_inflow>
 The induced velocity $u$ thus decreases as the climb velocity grows @book:priha2006.
 Climbing still costs more power than hovering, $P_c = F (v_c + u) > F v_h$, but the extra power is less than $F v_c$, the rate at which the vehicle gains potential energy, because $u$ drops below $v_h$.
 
-==== Axial descent
+==== Axial descent <subsec:descent>
 
 In descent, $v_c < 0$, and the free stream approaches the rotor from below, against the flow the rotor induces.
 The stream tube of @fig:climb_streamtube only exists as long as the air passes the disk in a single direction, which holds for fast descent with $v_c <= -2 v_h$: the rotor then brakes the air like a windmill (the _windmill brake state_#index("windmill brake state")), and momentum theory yields $u = -v_c \/ 2 - sqrt((v_c \/ 2)^2 - v_h^2)$ @book:priha2006.
 Between hover and that limit, $-2 v_h < v_c < 0$, the rotor sinks into its own wake; the flow recirculates around the blade tips (the _vortex ring state_#index("vortex ring state")), becomes unsteady, and momentum theory does not apply @book:priha2006.
 
-=== Limits of momentum theory
+=== Limits of momentum theory <subsec:limits>
 
 The major flaw with these equations is that they assume the induced velocity $v_i$ to be constant across the actuator disk and that no air mass leaves the control volume, as otherwise the assumption of momentum conservation would not hold.
 In reality, this will not be generally true, as, for example, the induced velocity varies due to the shape of the propeller blades, most notably so at the blade tips and, of course, the hub @book:priha2006.
@@ -502,3 +503,78 @@ At a given battery voltage, a motor with a low $K_v$ therefore turns slower and 
 
 Following @subsec:area_vs_velocity, the large propeller on a low-$K_v$ motor needs less power for the same thrust and is the choice for endurance, while the small propeller on a high-$K_v$ motor responds faster to speed changes, which favors agile flight.
 How fast the rotors actually need to respond is a question for the attitude controller, and thus for a later chapter.
+
+=== Sensing the airflow <subsec:sensing>
+
+The flight controller commands rotor speeds, but what it needs are thrusts.
+@eq:thrust_coefficient relates the two only as long as the air density and the inflow through the rotor stay the same; an updraft, the ground below the vehicle or the rotor's own wake change $C_T$ at constant speed.
+The air flowing through the rotor cannot be measured directly, but three quantities that are easy to measure on the vehicle stand in for it: the rotor speed, the motor current and the pressure across the disk.
+
+==== Rotor speed
+
+A Hall sensor at the motor bell registers the passing magnet poles and thus the rotor speed $n$.
+Sensorless brushless controllers derive the same information from the back EMF of the motor, so some controllers can report the speed without any additional sensor.
+
+==== Motor current
+
+The torque of a brushless DC motor is proportional to its current; with the torque constant $K_T = 60 \/ (2 pi K_v)$ (in #unit("N m/A") for $K_v$ in #unit("min^-1") per volt) and the no-load current $I_0$, which covers the motor's own friction losses, the shaft power follows with @eq:shaft_power as
+
+$ P = K_T (I - I_0) dot omega_R $ <eq:power_from_current>
+
+Together with the rotor speed, @eq:power_coefficient yields the load of the propeller,
+
+$ rho C_P = P / (n^3 D^5) $ <eq:load_estimate>
+
+and, with the air density $rho$ known from a barometer and a temperature sensor, the power coefficient itself.
+The density changes only slowly, by about 1 % per 100 m of altitude; a change of $C_P$ at constant speed therefore indicates a change of the inflow rather than of the air.
+
+==== Pressure across the disk
+
+The pressure jump across the disk gives the thrust directly, by @eq:rotor_force_deltap:
+
+$ T = A_r Delta p = A_r (p_2 - p_1) $
+
+with $p_1$ measured just above and $p_2$ just below the disk.
+Measuring both sides matters: in hover, the static pressure just below the disk exceeds the ambient pressure by only $p_2 - p_infinity = 3/2 rho v_i^2 = 3/4 Delta p$ (from @eq:bernoulli_inflow with $v_0 = 0$ and $v_3 = 2 v_i$), and this fraction changes with the inflow.
+
+The signals are small: a rotor of #qty("10", "cm") radius producing #qty("1", "N") of thrust has a pressure jump of only $Delta p = #qty("1", "N") \/ (pi dot (#qty("0.1", "m"))^2) approx #qty("32", "Pa")$.
+A differential pressure sensor with a range of a few hundred pascals suits this better than the difference of two absolute barometers.
+Each passing blade adds a pressure pulse, at twice the rotational frequency for a two-bladed propeller, so the readings have to be averaged over several revolutions.
+Since the induced velocity is not uniform (@subsec:limits), the ports should sit at a fixed radius, flush with the flow, and the measured $Delta p$ needs a calibration against a thrust stand.
+
+==== Combining the measurements
+
+@fig:sensing_estimator shows how the measurements combine.
+With thrust, power, speed and density, the coefficients of @eq:thrust_coefficient and @eq:power_coefficient and the figure of merit of @eq:figure_of_merit can be tracked during flight.
+
+#figure(
+  placement: auto,
+  {
+    sensing-estimator()
+    caption-rule
+  },
+  caption: flex-caption(
+    [Estimating the rotor state from motor and pressure measurements],
+    [Estimating the rotor state: speed, current and pressure across the disk yield rotor speed, shaft power and thrust, from which the coefficients, the figure of merit and the velocity through the disk follow.],
+  ),
+) <fig:sensing_estimator>
+
+The measurements also give the velocity of the air through the disk.
+By @eq:climb_power, the ideal power is $T (v_c + u)$; assuming the figure of merit $zeta_0$ measured in hover on a thrust stand also holds in flight, the actual power is $P approx T (v_c + u) \/ zeta_0$, and with @eq:climb_inflow
+
+$
+  w &= v_c + u approx zeta_0 P / T \
+  u &= T / (2 rho A_r w) \
+  v_c &= w - u
+$
+
+yields the axial velocity $v_c$ of the air relative to the rotor.
+This estimate is sensitive to the assumed figure of merit: in hover, $v_c = w - v_h^2 \/ w$ changes twice as fast as $w$, so for $T = #qty("2", "N")$, $r = #qty("10", "cm")$ and $rho = #qty("1.225", "kg/m^3")$ ($v_h approx #qty("5.1", "m/s")$), an error of 10 % in $zeta_0$ already shifts $v_c$ by about #qty("1", "m/s").
+
+Even without a reliable airspeed, the measurements show when the conditions change, since the rotor speed stays constant while current and pressure move:
+
+- An updraft or downdraft through the rotor changes the angle of attack of the blades; thrust, pressure jump and current change together while the speed stays the same.
+- Close to the ground, the rotor needs less power for the same thrust (_ground effect_#index("ground effect")), so that the apparent figure of merit rises @book:priha2006.
+- In the vortex ring state (@subsec:descent), the thrust fluctuates and the power required rises @book:priha2006; a fluctuating pressure jump at constant speed is an early sign of it.
+
+A thrust stand that records speed, current and thrust for each propeller comes first, as it provides $C_T$, $C_P$, $zeta_0$ and the pressure calibration that all of the above relies on.
