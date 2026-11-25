@@ -1,0 +1,46 @@
+# Builds the report on a version tag and attaches the PDF to a GitHub Release.
+# Tags are dates, as in the history (2023-06-17), or v-prefixed versions:
+#
+#   git tag -a 2026-11-25 -m "..." && git push origin 2026-11-25
+name: Release
+
+on:
+  push:
+    tags:
+      - "[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]"
+      - "v*"
+
+permissions: {}
+
+jobs:
+  release:
+    name: Build PDF and release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # create the release and upload the PDF
+    steps:
+      - name: Check out
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Install Typst
+        uses: typst-community/setup-typst@00ad6338f0b34724ea002136bfb701a6c18585b0 # v5.3.2
+        with:
+          typst-version: "0.15.1"
+
+      - name: Build the report
+        working-directory: typst
+        run: typst compile main.typ "breadbird-${TAG}.pdf"
+        env:
+          TAG: ${{ github.ref_name }}
+
+      - name: Create the release
+        run: |
+          gh release create "$TAG" "typst/breadbird-${TAG}.pdf" \
+            --title "$TAG" \
+            --generate-notes \
+            --verify-tag
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.ref_name }}
