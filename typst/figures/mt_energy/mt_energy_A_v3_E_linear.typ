@@ -15,7 +15,7 @@
   }
   let (x0, x1) = range-of("A")
   let (y0, y1) = range-of("v3")
-  let (z0, z1) = range-of("E")
+  let (z0, z1) = range-of("P")
   let size = 6
   let proj = projector(60deg, 25deg)
   // Data coordinates -> screen.
@@ -49,10 +49,10 @@
   }
   content(p((x0 + x1) / 2, y0, z0), labels.A, anchor: "north-west", padding: 0.5)
   content(p(x0, (y0 + y1) / 2, z0), labels.v3, anchor: "north-east", padding: 0.5)
-  content(p(x0, y1, (z0 + z1) / 2), labels.E, anchor: "south", padding: 1.0, angle: 90deg)
+  content(p(x0, y1, (z0 + z1) / 2), labels.P, anchor: "south", padding: 1.0, angle: 90deg)
 
   for (i, rows) in data.enumerate() {
-    line(..rows.map(r => p(r.A, r.v3, r.E)), stroke: styles.at(i).color + 0.8pt)
+    line(..rows.map(r => p(r.A, r.v3, r.P)), stroke: styles.at(i).color + 0.8pt)
   }
 
   // Legend (pgfplots: legend pos=north east).

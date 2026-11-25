@@ -18,4 +18,4 @@ Typst Universe on first compile.
 - `commands.typ`: helpers such as `withunit`, `ncircled`, `name`, `todo`
 - `chapters/`: content
 - `figures/`: CeTZ redraws of the TikZ/pgfplots pictures
-- `data/`: CSV data for the energy plots, copied from `../latex/data/` (originally produced with `../matlab/momentum_theory_energy.m`)
+- `data/`: CSV data for the power plots, written by `../matlab/momentum_theory_energy.m` (`octave --no-gui matlab/momentum_theory_energy.m` from the repository root)

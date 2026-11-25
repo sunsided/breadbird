@@ -4,7 +4,7 @@
 
 #let mt-energy-3combined() = stack(
   spacing: 0.8em,
-  mt-figure("A", "E", log: true, size: (12, 5)),
-  mt-figure("v3", "E", log: true, size: (12, 5), show-legend: false),
+  mt-figure("A", "P", log: true, size: (12, 5)),
+  mt-figure("v3", "P", log: true, size: (12, 5), show-legend: false),
   mt-figure("A", "v3", log: true, size: (12, 5), show-legend: false),
 )
