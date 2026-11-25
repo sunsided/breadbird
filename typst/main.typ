@@ -27,7 +27,6 @@
 #set-lhead[List of Tables]
 #outline(title: [List of Tables], target: figure.where(kind: table))
 
-#include "title/dedication.typ"
 
 #show: mainmatter
 #set heading(numbering: "1.1")

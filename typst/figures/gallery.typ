@@ -33,3 +33,5 @@
 #import "schematics/virtual_rotation_ab.typ": virtual-rotation-ab
 #fig("schematics/coordinate_system", coordinate-system())
 #fig("schematics/virtual_rotation_ab", virtual-rotation-ab())
+#import "climb_streamtube.typ": climb-streamtube
+#fig("climb_streamtube", climb-streamtube())

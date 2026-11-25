@@ -54,11 +54,12 @@
   }
 }
 
-/// List of to-dos (LaTeX: \listoftodos).
-#let list-of-todos() = {
-  heading(numbering: none)[Things to do]
-  context {
-    for (i, item) in query(<todo>).enumerate() {
+/// List of to-dos (LaTeX: \listoftodos); renders nothing when there are none.
+#let list-of-todos() = context {
+  let items = query(<todo>)
+  if items.len() > 0 {
+    heading(numbering: none)[Things to do]
+    for (i, item) in items.enumerate() {
       let loc = item.location()
       block(link(loc, grid(
         columns: (2em, 1fr, auto),

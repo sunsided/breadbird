@@ -32,5 +32,5 @@
 
   // m-dot brace
   cetz.decorations.flat-brace((-len, -1), (-len, 1), amplitude: 0.18, stroke: magenta)
-  content((-len - 0.35, 0), $rho (2 pi r) arrow(v) = dot(m)$, anchor: "east", padding: 0.1)
+  content((-len - 0.35, 0), $rho (pi r^2) arrow(v) = dot(m)$, anchor: "east", padding: 0.1)
 })
