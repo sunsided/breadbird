@@ -37,3 +37,27 @@
 #fig("climb_streamtube", climb-streamtube())
 #import "sensing_estimator.typ": sensing-estimator
 #fig("sensing_estimator", sensing-estimator())
+#import "control/diagrams.typ": axis-chain, feedback-loop
+#fig("control/diagrams: axis-chain", axis-chain())
+#fig("control/diagrams: feedback-loop", feedback-loop())
+#import "control/poles.typ": pole-gallery, closed-loop-poles
+#fig("control/poles: pole-gallery", pole-gallery())
+#fig("control/poles: closed-loop-poles", closed-loop-poles())
+#import "control/z_plane.typ": z-plane
+#fig("control/z_plane", z-plane())
+#import "control/responses.typ": open-loop, placement-wn, placement-zeta, placement-motor, lqr-rho, integral-action, windup, rate-tuning, twiddle-cost, cascade
+#fig("control/responses: open-loop", open-loop())
+#fig("control/responses: placement-wn", placement-wn())
+#fig("control/responses: placement-zeta", placement-zeta())
+#fig("control/responses: placement-motor", placement-motor())
+#fig("control/responses: lqr-rho", lqr-rho())
+#fig("control/responses: integral-action", integral-action())
+#fig("control/responses: windup", windup())
+#fig("control/responses: rate-tuning", rate-tuning())
+#fig("control/responses: twiddle-cost", twiddle-cost())
+#fig("control/responses: cascade", cascade())
+#import "control/identification.typ": ident-setup, ident-trajectories, lag-residual, bringup-step
+#fig("control/identification: ident-setup", ident-setup())
+#fig("control/identification: ident-trajectories", ident-trajectories())
+#fig("control/identification: lag-residual", lag-residual())
+#fig("control/identification: bringup-step", bringup-step())

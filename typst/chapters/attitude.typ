@@ -85,4 +85,4 @@ A point at radius $r$ from the axis experiences the tangential acceleration $a_T
 ) <fig:tangential>
 
 How fast the attitude can change is thus limited twice: by how fast the motors can change the rotor speeds against the rotational inertia of the rotors (@subsec:area_vs_velocity), and by how fast the resulting torques can turn the frame against its own moment of inertia.
-Both have to be known for the attitude controller, which is the subject of a later chapter.
+Both have to be known for the attitude controller of @cha:control, and @cha:identification shows how to measure them.

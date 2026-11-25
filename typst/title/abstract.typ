@@ -18,6 +18,6 @@
   [This report collects the theoretical foundations for the autonomous flight control of a quadrotor UAV built around the STM32F3-Discovery evaluation board.
   So far, it covers the thrust of a propeller: momentum theory for hover, axial climb and descent, the tradeoff between rotor size and power, the efficiency limits of the model, and the relation of thrust and power to rotor speed using measured propeller coefficients, ending with the matching of motor and propeller and with estimating the airflow from motor and pressure measurements.
   A second chapter describes how thrust and torque differences rotate the vehicle.
-  The control part has not been written yet.]
+  A third chapter designs the attitude controller in state space, from pole placement and LQR with integral action and an observer to PID and its tuning, and a fourth identifies the model parameters the design needs from flight data, in closed loop and on the flight controller itself.]
   v(3fr)
 })

@@ -500,7 +500,7 @@ For a brushless DC motor, the speed constant $K_v$ (in #unit("min^-1") per volt)
 At a given battery voltage, a motor with a low $K_v$ therefore turns slower and delivers more torque for the same current, which suits a large propeller; a high-$K_v$ motor suits a small one.
 
 Following @subsec:area_vs_velocity, the large propeller on a low-$K_v$ motor needs less power for the same thrust and is the choice for endurance, while the small propeller on a high-$K_v$ motor responds faster to speed changes, which favors agile flight.
-How fast the rotors actually need to respond is a question for the attitude controller, and thus for a later chapter.
+How fast the rotors actually need to respond is a question for the attitude controller of @cha:control.
 
 === Sensing the airflow <subsec:sensing>
 

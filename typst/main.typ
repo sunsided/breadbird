@@ -32,6 +32,8 @@
 #set heading(numbering: "1.1")
 #include "chapters/theory.typ"
 #include "chapters/attitude.typ"
+#include "chapters/control.typ"
+#include "chapters/identification.typ"
 
 #show: backmatter
 
