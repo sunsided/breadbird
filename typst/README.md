@@ -1,0 +1,18 @@
+# Typst sources
+
+Typst port of the LaTeX sources in [`../latex/`](../latex/).
+
+```sh
+typst compile main.typ                         # -> main.pdf
+typst compile --root . figures/gallery.typ     # all 14 figures, including unused ones
+```
+
+Packages (`cetz`, `cetz-plot`, `unify`, `in-dexter`, `equate`) are fetched from
+Typst Universe on first compile.
+
+- `main.typ`: document entry point (front, main and back matter)
+- `template.typ`: page layout, headings, numbering (replaces `thesis.cls` and `tex/header/`)
+- `commands.typ`: helpers such as `withunit`, `ncircled`, `name`, `todo`
+- `chapters/`: content
+- `figures/`: CeTZ redraws of the TikZ/pgfplots pictures
+- `data/`: CSV data for the energy plots, copied from `../latex/data/` (originally produced with `../matlab/momentum_theory_energy.m`)

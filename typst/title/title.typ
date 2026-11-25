@@ -1,0 +1,15 @@
+// Title page (latex/tex/title/title.tex).
+#let title-page(title, author, author-url) = page(header: none, align(center, {
+  text(size: 1.2em, smallcaps[Operation “Breadbird”])
+  v(0.5cm)
+  line(length: 100%, stroke: 0.5mm)
+  v(0.4cm)
+  text(size: 2em, weight: "bold", title)
+  v(0.4cm)
+  line(length: 100%, stroke: 0.5mm)
+  v(1.5cm)
+  align(left, text(size: 1.2em)[_Author:_ \ #link(author-url, author)])
+  v(1em)
+  text(size: 1.2em, datetime.today().display("[month repr:long] [year]"))
+  v(1fr)
+}))

@@ -3,7 +3,7 @@
 > This is old work in progress. It may act as an okay reference for technical documentation
 > in LaTeX, but YMMV.
 
-See the [latex/](latex/) directory for the main content.
+See the [typst/](typst/) directory for the main content. The original LaTeX sources remain in [latex/](latex/).
 
 <div style="text-align: center" align="center">
     <img src="readme/actuator_disc_and_stream_tube.png" alt="Actuator Disk and Stream Tube geometry" />
