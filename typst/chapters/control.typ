@@ -231,7 +231,7 @@ whose poles are the eigenvalues of $bold(Phi) - bold(Gamma) bold(K)$.
 With four states and four gains, there is one gain per pole to choose, and for a single input, the gains that put the poles at given positions are unique.
 _Pole placement_#index("pole placement") computes them.
 
-=== Controllability
+=== Controllability <subsec:controllability>
 
 The gains can only move a pole if the input reaches the corresponding part of the state.
 Starting from $bold(x) = bold(0)$, the input reaches the directions $bold(Gamma)$ after one step, $bold(Phi) bold(Gamma)$ after two and so on; if the _controllability matrix_#index("controllability")
@@ -257,6 +257,7 @@ whose two columns point in the same direction, $(1, 1)$: its rank is one, not tw
 The lever moves both flows up and down together, i.e. it sets the total flow, but nothing it does changes the difference $h - c$, which only decays on its own.
 And the difference is what sets the temperature, which therefore cannot be controlled at all, however clever the controller.
 On the quadrotor, the same happens if all four rotors are always given the same command: the vehicle can climb and sink, but never roll, since the collective thrust does not reach the attitude states.
+A tricopter with three fixed rotors is the airframe version of the shower: it has one input too few for its four quantities and cannot hover without spinning (@sec:why_four_rotors).
 
 Had the two valves different time constants, and with them different $a_h != a_c$ and $g_h != g_c$, the columns of @eq:shower_controllability would be $(g_h, g_c)$ and $(a_h g_h, a_c g_c)$, which point in different directions, and the shower would formally be controllable: by wiggling the lever quickly, the faster valve could be made to run ahead of the slower one.
 Formally controllable but practically hopeless is exactly the situation the condition number of $bold(C)$ measures.
