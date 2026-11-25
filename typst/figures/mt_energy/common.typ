@@ -1,6 +1,6 @@
 // Shared loader and plot setup for the momentum theory power plots
 // (latex/pictures/mt_energy/*.tikz). Data: data/mt_energy/*.csv, written by
-// matlab/momentum_theory_energy.m (copied from latex/data/).
+// matlab/momentum_theory_energy.m.
 #import "../common.typ": cetz
 #import "@preview/cetz-plot:0.1.4": plot
 #import "@preview/unify:0.8.1": unit, qty

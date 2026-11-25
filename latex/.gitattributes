@@ -1,3 +1,0 @@
-*.tex	diff=tex
-*.bib	diff=bibtex
-*.tikz	diff=tex

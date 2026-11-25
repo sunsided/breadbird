@@ -1,6 +1,8 @@
 # Typst sources
 
-Typst port of the LaTeX sources in [`../latex/`](../latex/).
+Typst port of the original LaTeX sources, which were removed afterwards. Comments
+naming a `latex/...` file point to the file a piece was ported from; see the git
+history for those.
 
 With [Task](https://taskfile.dev) from the repository root: `task build`, `task dev` (watch),
 `task build:figures`, `task clean`. Or directly from this directory:
